@@ -1,0 +1,137 @@
+{
+  "plot": {
+    "name": "Ascott Allotments, Ealing",
+    "size": { "w": 3, "h": 3 },
+    "beds": [
+      { "id": "A", "name": "Bed A", "w": 1.2, "h": 3, "x": 0.15, "y": 0, "status": "Plant this autumn",
+        "blocks": [
+          { "crop": "Garlic", "from": 0, "to": 1, "when": "Oct–Nov", "note": "Cloves 15 cm apart, tip just below the compost" },
+          { "crop": "Autumn onion sets", "from": 1, "to": 2, "when": "Oct–Nov", "note": "10 cm apart, tips showing; net against birds" },
+          { "crop": "Broad beans", "from": 2, "to": 3, "when": "Oct–Nov", "note": "Aquadulce Claudia, double row, 20 cm apart" }
+        ] },
+      { "id": "B", "name": "Bed B", "w": 1.2, "h": 3, "x": 1.8, "y": 0, "status": "Covered until spring",
+        "blocks": [
+          { "crop": "Black polythene", "from": 0, "to": 3, "when": "Now → March", "note": "Weighted edges. Cardboard and compost go on in spring" }
+        ] }
+    ],
+    "path": { "x": 1.35, "w": 0.45, "label": "Path 45 cm" },
+    "strawberries": { "x": 0, "w": 0.15, "label": "Strawberry row", "note": "Along the paving-slab path. The beds and path use 2.85 m of the 3 m, so measure this strip on site." }
+  },
+
+  "weedGroups": [
+    { "id": "easy", "name": "Easy annuals", "blurb": "They die in winter. Pull them before they seed and they won't come back." },
+    { "id": "check", "name": "Check first: bindweed", "blurb": "Two plants share the name. One is a 5-minute job, the other takes years. Dig one up and look at the root." },
+    { "id": "problem", "name": "Possible problem: grass", "blurb": "A clump of grass is easy. Couch grass spreads by underground runners and regrows from every piece." },
+    { "id": "keep", "name": "Keep: not weeds", "blurb": "Leave these in the ground." }
+  ],
+
+  "weeds": [
+    { "id": "fat-hen", "group": "easy", "name": "Fat hen", "latin": "Chenopodium album",
+      "life": "Annual", "difficulty": 1,
+      "spot": "Grey-green diamond leaves with a white mealy dust; grows tall and upright, seeds in dense spikes.",
+      "remove": "Hand pull. Big ones come up with a twist, or loosen with the fork.",
+      "dispose": "Compost if not in seed. Bag any plant with seed heads.",
+      "photo": "img/plants/fat-hen.jpg" },
+    { "id": "redshank", "group": "easy", "name": "Redshank / knotgrass", "latin": "Persicaria maculosa, Polygonum aviculare",
+      "life": "Annual", "difficulty": 1,
+      "spot": "Redshank: red stems swollen at the joints, a dark blotch in the middle of each leaf, pink flower spikes. Knotgrass: low wiry mat with tiny leaves.",
+      "remove": "Hand pull. Knotgrass has a tough central root: lever it out with the hori-hori.",
+      "dispose": "Compost if not in seed. Bag seed heads.",
+      "photo": "img/plants/redshank.jpg" },
+    { "id": "black-medick", "group": "easy", "name": "Black medick / trefoil", "latin": "Medicago lupulina",
+      "life": "Annual", "difficulty": 1,
+      "spot": "Low sprawl of clover-like leaves in threes, tiny yellow pom-pom flowers, black seed pods.",
+      "remove": "Pull from the centre or lever out with the hori-hori. It feeds the soil (a legume), so no rush.",
+      "dispose": "Compost.",
+      "photo": "img/plants/black-medick.jpg" },
+    { "id": "chickweed", "group": "easy", "name": "Chickweed", "latin": "Stellaria media",
+      "life": "Annual", "difficulty": 1,
+      "spot": "Soft bright-green mats, small oval leaves in pairs, tiny white star flowers. Grows all winter.",
+      "remove": "Rake it up by hand, or just cover it: cardboard or polythene smothers it.",
+      "dispose": "Compost.",
+      "photo": "img/plants/chickweed.jpg" },
+
+    { "id": "black-bindweed", "group": "check", "name": "Black bindweed", "latin": "Fallopia convolvulus",
+      "life": "Annual", "difficulty": 1,
+      "spot": "Heart-shaped leaves, twining stems, tiny greenish flowers in clusters. Root: one thin, short root. No white runners.",
+      "remove": "Hand pull and unwind it from whatever it climbs.",
+      "dispose": "Compost if not in seed.",
+      "photo": "img/plants/black-bindweed.jpg", "checkInPerson": true },
+    { "id": "field-bindweed", "group": "check", "name": "Field bindweed", "latin": "Convolvulus arvensis",
+      "life": "Perennial", "difficulty": 3,
+      "spot": "Arrow-shaped leaves, white or pink trumpet flowers. Root: white, brittle, snaps easily and runs sideways deep in the soil.",
+      "remove": "Fork out as much root as you can once, when the soil is dry enough. Every piece left regrows, so after that pull each new shoot weekly. It gives up once it can't feed.",
+      "dispose": "Never compost the roots. Drown them in a lidded bucket of water for 4+ weeks, then the sludge can go on the heap.",
+      "photo": "img/plants/field-bindweed.jpg", "checkInPerson": true },
+
+    { "id": "grass-tussock", "group": "problem", "name": "Grass tussocks", "latin": "Various clump-forming grasses",
+      "life": "Perennial", "difficulty": 2,
+      "spot": "A tight clump with a ball of fibrous roots. Pull it and nothing trails behind.",
+      "remove": "Slice under the clump with the spade, or fork it out.",
+      "dispose": "Stack upside down to rot down, or compost broken up. Bag seed heads.",
+      "photo": null, "checkInPerson": true },
+    { "id": "couch-grass", "group": "problem", "name": "Couch grass", "latin": "Elymus repens",
+      "life": "Perennial", "difficulty": 3,
+      "spot": "Grass that runs in lines, not clumps. Dig: wiry white runners with sharp pointed tips, new shoots at the joints.",
+      "remove": "Fork out every runner you can find (don't rotavate: it chops them into new plants). Cover the rest with black polythene for a season.",
+      "dispose": "Drown the runners in the lidded bucket, or bag them. Never compost them fresh.",
+      "photo": "img/plants/couch-grass.jpg", "checkInPerson": true },
+
+    { "id": "strawberry", "group": "keep", "name": "Strawberries", "latin": "Fragaria × ananassa",
+      "life": "Perennial", "difficulty": 0,
+      "spot": "Toothed leaves in threes, runners rooting along the ground.",
+      "remove": "Keep. Weed around them, cut off old brown leaves; pot up strong runners for new plants.",
+      "dispose": null,
+      "photo": "img/plants/strawberry.jpg" },
+    { "id": "lambs-ear", "group": "keep", "name": "Lamb's ear", "latin": "Stachys byzantina",
+      "life": "Perennial", "difficulty": 0,
+      "spot": "Soft, furry silver leaves. Bees love the flower spikes.",
+      "remove": "Keep, or move it to an edge. It spreads slowly; split it in spring if it gets big.",
+      "dispose": null,
+      "photo": "img/plants/lambs-ear.jpg" },
+    { "id": "sunflower", "group": "keep", "name": "Sunflowers", "latin": "Helianthus annuus",
+      "life": "Annual", "difficulty": 0,
+      "spot": "One big head per stem, a single thick root, no tubers.",
+      "remove": "Let the heads dry for the birds or save seed, then pull the stems.",
+      "dispose": "Chop stems small for compost.",
+      "photo": "img/plants/sunflower.jpg" },
+    { "id": "jerusalem-artichoke", "group": "keep", "name": "…or Jerusalem artichokes", "latin": "Helianthus tuberosus",
+      "life": "Perennial", "difficulty": 2,
+      "spot": "Looks like a sunflower with many smaller flowers. Dig at the base: knobbly tubers mean artichokes.",
+      "remove": "If tubers: dig and eat them through winter. Any tuber left regrows, so decide whether they stay and where.",
+      "dispose": "Eat the tubers. Stems to compost.",
+      "photo": "img/plants/jerusalem-artichoke.jpg", "checkInPerson": true }
+  ],
+
+  "tools": [
+    { "id": "spade", "name": "Spade", "have": true },
+    { "id": "fork", "name": "Stainless digging fork", "have": true },
+    { "id": "gloves", "name": "Gloves", "why": "Thorny, stinging and muddy jobs" },
+    { "id": "shears", "name": "Shears or a kama sickle", "why": "Cutting tall weeds down before digging" },
+    { "id": "hori-hori", "name": "Hori-hori", "why": "Levering out taproots and planting" },
+    { "id": "buckets", "name": "Buckets", "why": "Carrying weeds and compost" },
+    { "id": "rubble-bags", "name": "Rubble bags", "why": "Seed heads and waste" },
+    { "id": "lidded-bucket", "name": "Lidded bucket", "why": "Drowning bindweed and couch roots" },
+    { "id": "polythene", "name": "Black polythene", "why": "Covering Bed B and the path until spring" },
+    { "id": "cardboard", "name": "Cardboard", "why": "Plain brown, tape and staples removed" },
+    { "id": "compost", "name": "Compost", "why": "About 0.4 m³ for Bed A at 10–12 cm deep (8–10 bags of 50 L)" },
+    { "id": "mesh", "name": "Insect mesh and hoops", "why": "Pigeons on the brassicas and broad beans" }
+  ],
+
+  "steps": [
+    { "title": "Cut down and bag seed heads", "body": "Shears or sickle first. Bag anything in seed so it doesn't drop on the plot." },
+    { "title": "Fork out roots once", "body": "Bindweed, couch and tussocks only, in one pass. Only when the soil isn't sticky: if a squeezed handful smears, wait." },
+    { "title": "Make Bed A and plant it", "body": "Overlap cardboard by 15 cm, wet it, then 10–12 cm of compost on top. Plant garlic, onion sets and broad beans straight into the compost." },
+    { "title": "Cover the rest", "body": "Black polythene over Bed B and the path, edges weighted or dug in. Covered ground doesn't count as cultivated, so Bed A is your cultivated part for now." },
+    { "title": "Pull bindweed shoots weekly", "body": "Any shoot that pokes through the cardboard or round the edges. Each one pulled starves the root." }
+  ],
+
+  "rules": {
+    "cultivated": [ { "months": 3, "pct": 25 }, { "months": 6, "pct": 50 }, { "months": 12, "pct": 75 } ],
+    "notes": [
+      "Covered ground doesn't count as cultivated.",
+      "Carpet is banned as a cover.",
+      "Water is off from the end of October to April."
+    ]
+  }
+}

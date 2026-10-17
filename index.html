@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#15110e">
+  <title>Clearing the plot · Ascott Allotments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div class="mast-top">
+      <span>Ascott Allotments · Ealing · 3 × 3 m</span>
+      <nav aria-label="Pages">
+        <a href="index.html" aria-current="page">Clearing</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="calendar.html" class="soon">Calendar</a>
+      </nav>
+    </div>
+    <h1>Clear the weeds.</h1>
+    <p class="lede">Job one on the plot. Know what you're pulling, <strong>plant Bed A this autumn</strong>, and cover the rest until spring.</p>
+  </header>
+
+  <main>
+    <section id="weeds" aria-labelledby="weeds-h">
+      <h2 id="weeds-h">What's growing</h2>
+      <p class="sub">Matched against the usual autumn weeds of a London plot. Anything tagged <span class="tag verify">check in person</span> needs a look at the root before you decide.</p>
+      <div id="weed-groups"></div>
+    </section>
+
+    <section id="plan" aria-labelledby="plan-h">
+      <h2 id="plan-h">The plot this autumn</h2>
+      <p class="sub">Drawn to scale. Tap a block to see what goes there.</p>
+      <div class="plan-wrap"><svg id="plan-svg" class="plan" role="img" aria-labelledby="plan-h"></svg></div>
+      <div class="plan-key" id="plan-key"></div>
+    </section>
+
+    <section id="tools" aria-labelledby="tools-h">
+      <h2 id="tools-h">Tools</h2>
+      <p class="sub"><span class="count" id="tools-count"></span> Tick things off as you get them.</p>
+      <ul class="checklist" id="tools-list"></ul>
+    </section>
+
+    <section id="steps" aria-labelledby="steps-h">
+      <h2 id="steps-h">No-dig clearing, in order</h2>
+      <p class="sub">One proper dig to get the perennial roots out, then never again.</p>
+      <ol class="steps" id="steps-list"></ol>
+    </section>
+
+    <section id="rules" aria-labelledby="rules-h">
+      <h2 id="rules-h">Site rules</h2>
+      <p class="sub">How much of the plot has to be cultivated, and by when.</p>
+      <div class="rules-start">
+        <label for="start-date">I took the plot on</label>
+        <input type="date" id="start-date">
+      </div>
+      <div class="milestones" id="milestones"></div>
+      <ul class="notes" id="rule-notes"></ul>
+    </section>
+
+    <section id="photos" aria-labelledby="photos-h">
+      <h2 id="photos-h">Before / after</h2>
+      <p class="sub">Take the same shot from the same spot each visit. Photos stay on this phone.</p>
+      <label class="btn" for="photo-input">Add photo</label>
+      <input type="file" id="photo-input" accept="image/*" multiple hidden>
+      <div id="photo-compare"></div>
+      <div class="shots" id="photo-grid"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Plot details from my notes; weed advice is general guidance for no-dig plots in south-east England.</p>
+    <details>
+      <summary>Photo credits</summary>
+      <ul id="credits"></ul>
+    </details>
+  </footer>
+</div>
+
+<nav class="bar" aria-label="Sections">
+  <ul>
+    <li><a href="#weeds">Weeds</a></li>
+    <li><a href="#plan">Plan</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#steps">Steps</a></li>
+    <li><a href="#rules">Rules</a></li>
+    <li><a href="#photos">Photos</a></li>
+  </ul>
+</nav>
+
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

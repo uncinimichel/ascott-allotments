@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#15110e">
+  <title>Plot tracker · Ascott Allotments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div class="mast-top">
+      <span>Ascott Allotments · Ealing · 3 × 3 m</span>
+      <nav aria-label="Pages">
+        <a href="index.html">Clearing</a>
+        <a href="tracker.html" aria-current="page">Tracker</a>
+        <a href="calendar.html" class="soon">Calendar</a>
+      </nav>
+    </div>
+    <h1>What's in the ground.</h1>
+    <p class="lede">Every bed, what's planted, and a note from each visit.</p>
+  </header>
+
+  <main>
+    <section id="beds" aria-labelledby="beds-h">
+      <h2 id="beds-h">Beds</h2>
+      <div id="bed-list"></div>
+    </section>
+
+    <section id="add" aria-labelledby="add-h">
+      <h2 id="add-h">Add a planting</h2>
+      <form class="form" id="planting-form">
+        <div class="grid">
+          <label>Crop <input type="text" name="crop" required placeholder="e.g. Garlic"></label>
+          <label>Variety <input type="text" name="variety" placeholder="optional"></label>
+          <label>Bed <select name="bed" id="bed-select"></select></label>
+        </div>
+        <div class="grid">
+          <label>Sown <input type="date" name="sown"></label>
+          <label>Planted out <input type="date" name="planted"></label>
+          <label>Harvest (expected) <input type="month" name="harvest"></label>
+        </div>
+        <label>Note <input type="text" name="note" placeholder="spacing, where in the bed…"></label>
+        <div class="actions">
+          <button class="btn" type="submit" id="planting-submit">Add planting</button>
+          <button class="btn ghost" type="button" id="planting-cancel" hidden>Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="log" aria-labelledby="log-h">
+      <h2 id="log-h">Weekly log</h2>
+      <form class="form" id="log-form">
+        <div class="grid">
+          <label>Date <input type="date" name="date" required></label>
+        </div>
+        <label>What happened <textarea name="text" rows="3" required placeholder="Weeded Bed A, pulled bindweed shoots along the path…"></textarea></label>
+        <div class="actions"><button class="btn" type="submit">Save entry</button></div>
+      </form>
+      <ul class="log" id="log-list"></ul>
+    </section>
+
+    <section id="data" aria-labelledby="data-h">
+      <h2 id="data-h">Back up</h2>
+      <p class="sub">Your tracker is saved on this phone. Export a copy now and then, or move it to another device.</p>
+      <div class="actions" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn ghost" type="button" id="export">Export backup</button>
+        <label class="btn ghost" for="import">Import backup</label>
+        <input type="file" id="import" accept="application/json" hidden>
+      </div>
+      <p class="sub" id="data-msg" role="status"></p>
+    </section>
+  </main>
+</div>
+
+<nav class="bar" aria-label="Sections">
+  <ul>
+    <li><a href="#beds">Beds</a></li>
+    <li><a href="#add">Add</a></li>
+    <li><a href="#log">Log</a></li>
+    <li><a href="#data">Back up</a></li>
+  </ul>
+</nav>
+
+<script src="js/common.js"></script>
+<script src="js/tracker.js"></script>
+</body>
+</html>

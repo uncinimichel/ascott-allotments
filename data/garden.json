@@ -1,0 +1,14 @@
+{
+  "beds": [
+    { "id": "A", "name": "Bed A", "size": "1.2 × 3 m", "note": "Cardboard + 10–12 cm compost, autumn 2026" },
+    { "id": "B", "name": "Bed B", "size": "1.2 × 3 m", "note": "Under black polythene until spring" },
+    { "id": "S", "name": "Strawberry row", "size": "along the slab path", "note": "Existing plants, kept" }
+  ],
+  "plantings": [
+    { "id": "p1", "bed": "A", "crop": "Garlic", "variety": "", "sown": "", "planted": "", "harvest": "2027-06", "note": "Plant Oct–Nov" },
+    { "id": "p2", "bed": "A", "crop": "Autumn onion sets", "variety": "", "sown": "", "planted": "", "harvest": "2027-06", "note": "Plant Oct–Nov" },
+    { "id": "p3", "bed": "A", "crop": "Broad beans", "variety": "Aquadulce Claudia", "sown": "", "planted": "", "harvest": "2027-05", "note": "Sow Oct–Nov" },
+    { "id": "p4", "bed": "S", "crop": "Strawberries", "variety": "", "sown": "", "planted": "", "harvest": "2027-06", "note": "Already growing" }
+  ],
+  "log": []
+}

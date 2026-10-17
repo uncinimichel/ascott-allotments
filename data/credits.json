@@ -1,0 +1,68 @@
+{
+  "fat-hen": {
+    "file": "Chenopodium album subsp. album sl2.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Chenopodium_album_subsp._album_sl2.jpg",
+    "author": "Stefan.lefnaer",
+    "license": "CC BY-SA 4.0"
+  },
+  "redshank": {
+    "file": "Persicaria maculosa.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Persicaria_maculosa.jpg",
+    "author": "The Cosmonaut",
+    "license": "CC BY-SA 2.5 ca"
+  },
+  "black-medick": {
+    "file": "Medicago lupulina 2 RF.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Medicago_lupulina_2_RF.jpg",
+    "author": "Robert Flogaus-Faust",
+    "license": "CC BY 4.0"
+  },
+  "chickweed": {
+    "file": "Kaldari Stellaria media 01.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Kaldari_Stellaria_media_01.jpg",
+    "author": "Kaldari",
+    "license": "CC0"
+  },
+  "black-bindweed": {
+    "file": "Fallopia convolvulus1pl.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Fallopia_convolvulus1pl.jpg",
+    "author": "Aung",
+    "license": "Public domain"
+  },
+  "field-bindweed": {
+    "file": "Convolvulus arvensis in Druelle.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Convolvulus_arvensis_in_Druelle.jpg",
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0"
+  },
+  "couch-grass": {
+    "file": "Elymus repens kz01.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Elymus_repens_kz01.jpg",
+    "author": "Krzysztof Ziarnek, Kenraiz",
+    "license": "CC BY-SA 4.0"
+  },
+  "lambs-ear": {
+    "file": "Stachys byzantina NBG LR.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Stachys_byzantina_NBG_LR.jpg",
+    "author": "PumpkinSky",
+    "license": "CC BY-SA 4.0"
+  },
+  "strawberry": {
+    "file": "Fragaria x ananassa Toscana 452.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Fragaria_x_ananassa_Toscana_452.jpg",
+    "author": "Stuhlfauth Thomas",
+    "license": "CC BY-SA 4.0"
+  },
+  "sunflower": {
+    "file": "Sunflower head 2015 G1.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunflower_head_2015_G1.jpg",
+    "author": "George Chernilevsky",
+    "license": "Public domain"
+  },
+  "jerusalem-artichoke": {
+    "file": "Topinambur Helianthus tuberosus 2.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Topinambur_Helianthus_tuberosus_2.jpg",
+    "author": "Darkone",
+    "license": "CC BY-SA 2.0"
+  }
+}
