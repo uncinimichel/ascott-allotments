@@ -1,13 +1,4 @@
 // Index page: weed guide, drawn plot plan, tools, steps, rules, progress photos.
-const SVG = "http://www.w3.org/2000/svg";
-const s = (tag, attrs = {}, ...kids) => {
-  const el = document.createElementNS(SVG, tag);
-  for (const [k, v] of Object.entries(attrs)) {
-    if (k.startsWith("on")) el.addEventListener(k.slice(2), v); else el.setAttribute(k, v);
-  }
-  for (const c of kids) el.append(c);
-  return el;
-};
 
 (async function main() {
   let site, credits;
@@ -79,98 +70,46 @@ function weedCard(w, credit) {
 }
 
 /* ---------- Plan ---------- */
-const BLOCK_COLOURS = {
-  "Garlic": "#efe4cf",
-  "Autumn onion sets": "#dcbc5e",
-  "Broad beans": "#93c27c",
-  "Cardboard": "#b08a5a",
-};
-
 function renderPlan(plot) {
   const svg = $("#plan-svg");
-  const W = plot.size.w, H = plot.size.h;
-  svg.setAttribute("viewBox", "-0.62 -0.36 4.05 3.78");
-
-
-  // Paving-slab path outside the plot, on the strawberry side.
-  const slabs = s("g", { "aria-hidden": "true" });
-  for (let y = 0; y < H - 0.01; y += 0.6) {
-    slabs.append(s("rect", { x: -0.42, y: y + 0.02, width: 0.38, height: 0.56, rx: 0.02, fill: "#2d241d", stroke: "#3d3128", "stroke-width": 0.008 }));
-  }
-  slabs.append(s("text", { class: "lbl-dim", transform: `translate(-0.5 ${H / 2}) rotate(-90)`, "text-anchor": "middle" }, "paving-slab path"));
-  svg.append(slabs);
-
   const key = $("#plan-key");
   const rows = [];
+  const blocks = [];
   const select = (i) => {
-    svg.querySelectorAll(".crop").forEach((g, j) => g.setAttribute("aria-pressed", String(i === j)));
+    blocks.forEach((g, j) => g.setAttribute("aria-pressed", String(i === j)));
     rows.forEach((r, j) => r.classList.toggle("active", i === j));
     if (i >= 0) rows[i].scrollIntoView({ block: "nearest" });
   };
 
-  // Strawberry strip.
-  const st = plot.strawberries;
-  addBlock({ x: st.x, y: 0, w: st.w, h: H, colour: "#93c27c", title: st.label, note: st.note, sub: "Kept" });
-  for (let y = 0.2; y < H; y += 0.3) svg.append(s("circle", { cx: st.x + st.w / 2, cy: y, r: 0.035, fill: "#e2784c", "aria-hidden": "true" }));
-
-  // Beds and their blocks.
-  for (const bed of plot.beds) {
-    for (const b of bed.blocks) {
-      addBlock({
-        x: bed.x, y: bed.y + b.from, w: bed.w, h: b.to - b.from,
-        colour: BLOCK_COLOURS[b.crop] || "#efe4cf",
-        title: `${bed.name}: ${b.crop}`, note: b.note, sub: b.when, label: b.crop,
-      });
+  drawPlot(svg, plot, (layer, areas) => {
+    const st = plot.strawberries;
+    const S = areas.S;
+    addBlock(layer, { ...S, colour: "#93c27c", title: st.label, note: st.note, sub: "Kept" });
+    for (let y = 0.2; y < S.h; y += 0.3) layer.append(sv("circle", { cx: S.x + S.w / 2, cy: y, r: 0.035, fill: "#e2784c", "aria-hidden": "true", "pointer-events": "none" }));
+    for (const bed of plot.beds) {
+      for (const b of bed.blocks) {
+        addBlock(layer, {
+          x: bed.x, y: bed.y + b.from, w: bed.w, h: b.to - b.from, colour: cropColour(b.crop),
+          title: `${bed.name}: ${b.crop}`, note: b.note, sub: b.when, label: b.crop,
+        });
+      }
     }
-    svg.append(s("rect", { class: "chalk", x: bed.x, y: bed.y, width: bed.w, height: bed.h, rx: 0.02 }));
-    svg.append(s("text", { class: "lbl-big", x: bed.x + 0.06, y: bed.y + 0.16 }, bed.id));
-  }
+  });
 
-  // Path between the beds.
-  const p = plot.path;
-  svg.append(s("text", { class: "lbl-dim", transform: `translate(${p.x + p.w / 2 + 0.025} ${H / 2}) rotate(-90)`, "text-anchor": "middle" }, "path"));
-
-  // Plot boundary, drawn last so it sits on top.
-  svg.append(s("rect", { class: "chalk", x: 0, y: 0, width: W, height: H, "stroke-dasharray": ".04 .03" }));
-
-  // Dimension lines.
-  dim(0, -0.18, W, -0.18, "3 m");
-  dim(W + 0.18, 0, W + 0.18, H, "3 m", true);
-  const A = plot.beds[0];
-  dim(A.x, H + 0.16, A.x + A.w, H + 0.16, "1.2 m");
-  dim(p.x, H + 0.16, p.x + p.w, H + 0.16, "45 cm");
-
-
-  function addBlock({ x, y, w, h: bh, colour, title, note, sub, label }) {
+  function addBlock(layer, { x, y, w, h: bh, colour, title, note, sub, label }) {
     const i = rows.length;
-    const g = s("g", { class: "crop", tabindex: 0, role: "button", "aria-pressed": "false", "aria-label": title,
+    const g = sv("g", { class: "crop", tabindex: 0, role: "button", "aria-pressed": "false", "aria-label": title,
       onclick: () => select(i),
       onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(i); } } },
-      s("rect", { x, y, width: w, height: bh, fill: colour, "fill-opacity": 0.2 }));
-    if (label) {
-      const cx = x + w / 2, cy = y + bh / 2;
-      g.append(s("text", { class: "lbl", x: cx, y: cy, "text-anchor": "middle", "dominant-baseline": "middle" }, label));
-    }
-    svg.append(g);
+      sv("rect", { x, y, width: w, height: bh, fill: colour, "fill-opacity": 0.2 }));
+    if (label) g.append(blockLabel(x, y, w, bh, label));
+    layer.append(g);
+    blocks.push(g);
     const row = h("div", { class: "row" },
       h("span", { class: "swatch", style: `background:${colour}`, "aria-hidden": "true" }),
       h("div", {}, h("b", {}, title), sub && ` · ${sub}`, h("small", {}, note)));
     rows.push(row);
     key.append(row);
-  }
-
-  function dim(x1, y1, x2, y2, text, vertical = false) {
-    const t = 0.05;
-    const g = s("g", { "aria-hidden": "true" },
-      s("line", { class: "dim", x1, y1, x2, y2 }),
-      vertical
-        ? s("path", { class: "dim", d: `M${x1 - t} ${y1}h${2 * t}M${x2 - t} ${y2}h${2 * t}` })
-        : s("path", { class: "dim", d: `M${x1} ${y1 - t}v${2 * t}M${x2} ${y2 - t}v${2 * t}` }));
-    const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
-    const label = s("text", { class: "lbl-dim", "text-anchor": "middle",
-      transform: vertical ? `translate(${mx + 0.1} ${my}) rotate(90)` : `translate(${mx} ${my - 0.035})` }, text);
-    g.append(label);
-    svg.append(g);
   }
 }
 
@@ -299,15 +238,4 @@ async function initPhotos() {
     draw();
   });
   draw();
-}
-
-/* ---------- Bottom bar highlights the section in view ---------- */
-function initBar() {
-  const links = [...document.querySelectorAll(".bar a")];
-  const io = new IntersectionObserver((entries) => {
-    for (const en of entries) if (en.isIntersecting) {
-      links.forEach((a) => a.classList.toggle("on", a.getAttribute("href") === `#${en.target.id}`));
-    }
-  }, { rootMargin: "-40% 0px -55% 0px" });
-  document.querySelectorAll("main section").forEach((sec) => io.observe(sec));
 }

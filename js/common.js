@@ -37,3 +37,14 @@ const fmtDate = (iso, opts = { day: "numeric", month: "short", year: "numeric" }
   iso ? new Date(iso + (iso.length === 7 ? "-01" : "") + "T12:00:00").toLocaleDateString("en-GB", opts) : "";
 
 const todayISO = () => new Date().toISOString().slice(0, 10);
+
+/* ---------- Bottom bar highlights the section in view ---------- */
+function initBar() {
+  const links = [...document.querySelectorAll(".bar a")];
+  const io = new IntersectionObserver((entries) => {
+    for (const en of entries) if (en.isIntersecting) {
+      links.forEach((a) => a.classList.toggle("on", a.getAttribute("href") === `#${en.target.id}`));
+    }
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("main section").forEach((sec) => io.observe(sec));
+}
