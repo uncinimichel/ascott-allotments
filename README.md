@@ -1,5 +1,7 @@
 # Ascott Allotments
 
+Live at https://uncinimichel.github.io/ascott-allotments/
+
 A phone-first site for my no-dig plot at Ascott Allotments, Ealing (3 × 3 m, two beds of 1.2 × 3 m).
 
 | Page | What it does |
@@ -31,4 +33,4 @@ python3 -m http.server 8000
 - Check the weed guide against photos of the actual plot
 - Calendar page with weekly reminders
 - Plant/weed ID from a photo
-- Offline support at the plot, and hosting
+- Offline support at the plot
