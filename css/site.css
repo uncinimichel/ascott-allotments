@@ -118,6 +118,25 @@ h3 { font: 700 22px/1.15 var(--display); margin: 0; }
 .card dt { font: 600 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--straw-dim); margin-bottom: 3px; }
 .card dd { margin: 0; }
 
+/* Remove / keep verdicts */
+.verdicts { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); margin: 8px 0 8px; }
+.verdict-box { border-radius: var(--radius); padding: 14px 16px; border: 1px solid; }
+.verdict-box.remove { --v: var(--problem); }
+.verdict-box.keep { --v: var(--keep); }
+.verdict-box { border-color: color-mix(in srgb, var(--v) 55%, transparent); background: color-mix(in srgb, var(--v) 10%, var(--loam)); }
+.verdict-head { font: 14px var(--mono); color: var(--straw-dim); margin-bottom: 10px; }
+.verdict-head b { font: 800 26px/1 var(--display); color: var(--v); margin-right: 6px; text-transform: uppercase; letter-spacing: .02em; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 14px; text-decoration: none; padding: 6px 10px; border-radius: 99px; background: var(--loam-2); border: 1px solid var(--edge); }
+.chip:hover { border-color: var(--v); }
+.verdict-strip {
+  font: 800 15px/1 var(--display); letter-spacing: .14em; text-transform: uppercase;
+  padding: 9px 16px; color: var(--peat);
+}
+.verdict-strip.remove { background: var(--problem); }
+.verdict-strip.keep { background: var(--keep); }
+.card.remove, .card.keep { border-top-width: 1px; }
+
 /* ---------- Plot plan (the drawn bit) ---------- */
 .plan-wrap {
   background:

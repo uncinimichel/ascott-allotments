@@ -31,6 +31,13 @@ const s = (tag, attrs = {}, ...kids) => {
 /* ---------- Weeds ---------- */
 function renderWeeds(site, credits) {
   const root = $("#weed-groups");
+  // At-a-glance answer first: what comes out, what stays.
+  const keep = site.weeds.filter((w) => w.group === "keep");
+  const remove = site.weeds.filter((w) => w.group !== "keep");
+  const chip = (w) => h("a", { href: `#weed-${w.id}`, class: "chip" }, w.name.replace(/^…or /, ""));
+  root.append(h("div", { class: "verdicts" },
+    h("div", { class: "verdict-box remove" }, h("div", { class: "verdict-head" }, h("b", {}, "Remove"), ` ${remove.length} weeds`), h("div", { class: "chips" }, remove.map(chip))),
+    h("div", { class: "verdict-box keep" }, h("div", { class: "verdict-head" }, h("b", {}, "Keep"), ` ${keep.length} plants`), h("div", { class: "chips" }, keep.map(chip)))));
   for (const g of site.weedGroups) {
     const weeds = site.weeds.filter((w) => w.group === g.id);
     // The two "check" groups are side-by-side comparisons, not catalogues.
@@ -53,7 +60,9 @@ function weedCard(w, credit) {
   const effort = w.difficulty > 0 && h("span", { class: "tag effort", title: `Effort ${w.difficulty} of 3` },
     "effort ", [1, 2, 3].map((n) => h("i", { class: n <= w.difficulty ? "on" : "" })));
 
-  return h("article", { class: "card", id: `weed-${w.id}` },
+  const verdict = w.group === "keep" ? "keep" : "remove";
+  return h("article", { class: `card ${verdict}`, id: `weed-${w.id}` },
+    h("div", { class: `verdict-strip ${verdict}` }, verdict === "keep" ? "Keep" : "Remove"),
     fig,
     h("div", { class: "card-body" },
       h("div", {},
@@ -74,7 +83,7 @@ const BLOCK_COLOURS = {
   "Garlic": "#efe4cf",
   "Autumn onion sets": "#dcbc5e",
   "Broad beans": "#93c27c",
-  "Black polythene": "#6b5d52",
+  "Cardboard": "#b08a5a",
 };
 
 function renderPlan(plot) {
@@ -82,9 +91,6 @@ function renderPlan(plot) {
   const W = plot.size.w, H = plot.size.h;
   svg.setAttribute("viewBox", "-0.62 -0.36 4.05 3.78");
 
-  svg.append(s("defs", {},
-    s("pattern", { id: "poly", width: ".08", height: ".08", patternUnits: "userSpaceOnUse", patternTransform: "rotate(45)" },
-      s("line", { x1: 0, y1: 0, x2: 0, y2: ".08", stroke: "#8a7a6c", "stroke-width": ".01" }))));
 
   // Paving-slab path outside the plot, on the strawberry side.
   const slabs = s("g", { "aria-hidden": "true" });
@@ -113,7 +119,6 @@ function renderPlan(plot) {
       addBlock({
         x: bed.x, y: bed.y + b.from, w: bed.w, h: b.to - b.from,
         colour: BLOCK_COLOURS[b.crop] || "#efe4cf",
-        hatch: b.crop === "Black polythene",
         title: `${bed.name}: ${b.crop}`, note: b.note, sub: b.when, label: b.crop,
       });
     }
@@ -136,12 +141,12 @@ function renderPlan(plot) {
   dim(p.x, H + 0.16, p.x + p.w, H + 0.16, "45 cm");
 
 
-  function addBlock({ x, y, w, h: bh, colour, hatch, title, note, sub, label }) {
+  function addBlock({ x, y, w, h: bh, colour, title, note, sub, label }) {
     const i = rows.length;
     const g = s("g", { class: "crop", tabindex: 0, role: "button", "aria-pressed": "false", "aria-label": title,
       onclick: () => select(i),
       onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(i); } } },
-      s("rect", { x, y, width: w, height: bh, fill: hatch ? "url(#poly)" : colour, "fill-opacity": hatch ? 1 : 0.2 }));
+      s("rect", { x, y, width: w, height: bh, fill: colour, "fill-opacity": 0.2 }));
     if (label) {
       const cx = x + w / 2, cy = y + bh / 2;
       g.append(s("text", { class: "lbl", x: cx, y: cy, "text-anchor": "middle", "dominant-baseline": "middle" }, label));
@@ -184,7 +189,7 @@ function renderTools(tools) {
     list.append(h("li", {}, h("label", { for: id },
       h("input", { type: "checkbox", id, checked: !!state[t.id],
         onchange: (e) => { state[t.id] = e.target.checked; store.set(KEY, state); count(); } }),
-      h("span", {}, h("span", { class: "what" }, t.name), h("span", { class: "why" }, t.have ? "Already have it" : t.why)))));
+      h("span", {}, h("span", { class: "what" }, t.name), h("span", { class: "why" }, t.have ? ["Already have it", t.note && `. ${t.note}`] : t.why)))));
   }
   count();
 }

@@ -1,7 +1,7 @@
 {
   "beds": [
     { "id": "A", "name": "Bed A", "size": "1.2 × 3 m", "note": "Cardboard + 10–12 cm compost, autumn 2026" },
-    { "id": "B", "name": "Bed B", "size": "1.2 × 3 m", "note": "Under black polythene until spring" },
+    { "id": "B", "name": "Bed B", "size": "1.2 × 3 m", "note": "Under cardboard until spring" },
     { "id": "S", "name": "Strawberry row", "size": "along the slab path", "note": "Existing plants, kept" }
   ],
   "plantings": [
