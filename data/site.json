@@ -114,7 +114,8 @@
         "label": "calendula pots, from spring",
         "x": 2.5,
         "y": 3.24,
-        "n": 3
+        "n": 3,
+        "catalog": "calendula"
       }
     ],
     "companions": [
@@ -122,7 +123,8 @@
         "area": "S",
         "from": 2,
         "to": 3,
-        "label": "Poached egg plant"
+        "label": "Poached egg plant",
+        "catalog": "poached-egg"
       }
     ]
   },
@@ -136,7 +138,10 @@
       "variety": "Douce Provence",
       "cover": "",
       "harvest": "2027-05",
-      "note": "On twiggy sticks. Sow straight into the compost, no hole in the cardboard."
+      "note": "On twiggy sticks. Sow straight into the compost, no hole in the cardboard.",
+      "catalog": [
+        "peas"
+      ]
     },
     {
       "id": "p5",
@@ -147,7 +152,13 @@
       "variety": "Lamb's lettuce, land cress, mizuna, chard plugs",
       "cover": "fleece",
       "harvest": "",
-      "note": "Under fleece on hoops. Cut an X in the cardboard for the chard plugs."
+      "note": "Under fleece on hoops. Cut an X in the cardboard for the chard plugs.",
+      "catalog": [
+        "lambs-lettuce",
+        "land-cress",
+        "mizuna",
+        "chard"
+      ]
     },
     {
       "id": "p1",
@@ -158,7 +169,10 @@
       "variety": "Solent Wight",
       "cover": "mesh",
       "harvest": "2027-06",
-      "note": "Cloves 15 cm apart, rows 25 cm. Push into the compost, no hole in the cardboard. Arriving about 3–6 Nov."
+      "note": "Cloves 15 cm apart, rows 25 cm. Push into the compost, no hole in the cardboard. Arriving about 3–6 Nov.",
+      "catalog": [
+        "garlic"
+      ]
     },
     {
       "id": "p2",
@@ -169,7 +183,10 @@
       "variety": "Senshyu",
       "cover": "mesh",
       "harvest": "2027-06",
-      "note": "10 cm apart, tips showing. Mesh keeps off allium leaf miner."
+      "note": "10 cm apart, tips showing. Mesh keeps off allium leaf miner.",
+      "catalog": [
+        "onion"
+      ]
     },
     {
       "id": "p3",
@@ -180,7 +197,10 @@
       "variety": "Aquadulce Claudia",
       "cover": "",
       "harvest": "2027-05",
-      "note": "15–20 cm apart. Calendula pots at this end (sow March–April) bring hoverflies against blackfly."
+      "note": "15–20 cm apart. Calendula pots at this end (sow March–April) bring hoverflies against blackfly.",
+      "catalog": [
+        "broad-beans"
+      ]
     },
     {
       "id": "p4",
@@ -192,46 +212,72 @@
       "cover": "",
       "harvest": "2027-06",
       "inGround": true,
-      "note": "35–40 cm apart, with poached egg plant between them at the bean end. Cut an X in the cardboard to plant."
+      "note": "35–40 cm apart, with poached egg plant between them at the bean end. Cut an X in the cardboard to plant.",
+      "catalog": [
+        "strawberries"
+      ]
     }
   ],
   "succession": [
     {
       "now": "Winter salads",
       "next": "Early potatoes",
-      "when": "March"
+      "when": "March",
+      "catalog": [
+        "potatoes"
+      ]
     },
     {
       "now": "Broad beans",
       "next": "Courgettes or squash",
-      "when": "June"
+      "when": "June",
+      "catalog": [
+        "courgette",
+        "squash"
+      ]
     },
     {
       "now": "Peas",
       "next": "Leeks, kale, borlotti wigwam on the north side",
-      "when": "June"
+      "when": "June",
+      "catalog": [
+        "leeks",
+        "kale",
+        "borlotti"
+      ]
     },
     {
       "now": "Garlic and onions",
       "next": "French beans or winter greens",
-      "when": "July"
+      "when": "July",
+      "catalog": [
+        "french-beans",
+        "kale"
+      ]
     }
   ],
   "pots": [
     {
       "name": "Calendula",
       "where": "2–3 pots at the end of Bed A by the beans",
-      "when": "Sow March–April"
+      "when": "Sow March–April",
+      "catalog": [
+        "calendula"
+      ]
     },
     {
       "name": "Tomatoes",
       "where": "Pots on the sunny south edge",
-      "when": "Summer"
+      "when": "Summer",
+      "catalog": [
+        "tomatoes"
+      ]
     },
     {
       "name": "Lemon and lime",
       "where": "Pots; on the plot in summer",
-      "when": "Home October–April"
+      "when": "Home October–April",
+      "catalog": []
     }
   ],
   "weedGroups": [
@@ -606,6 +652,660 @@
             "why": "Drowning bindweed roots and shoots"
           }
         ]
+      }
+    ]
+  },
+  "catalog": {
+    "note": "Months for London. In a cold spring wait a couple of weeks; the seed packet has the final say.",
+    "crops": [
+      {
+        "id": "garlic",
+        "name": "Garlic",
+        "variety": "Solent Wight",
+        "latin": "Allium sativum",
+        "kind": "veg",
+        "aliases": [
+          "garlic"
+        ],
+        "about": "A softneck garlic that stores until spring. It needs a cold winter to split into cloves, so autumn planting gives the biggest bulbs.",
+        "grow": "Push each clove, pointy end up, into the compost until the tip is 2–3 cm below the surface. No hole in the cardboard needed: the roots go through it.",
+        "spacing": "15 cm apart, rows 25 cm apart",
+        "tip": "Garlic hates competition, so keep it weeded. Lift it when the lower third of the leaves has gone yellow.",
+        "calendar": {
+          "plant": [
+            [
+              10,
+              12
+            ]
+          ],
+          "harvest": [
+            [
+              6,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "id": "onion",
+        "name": "Autumn onion sets",
+        "variety": "Senshyu",
+        "latin": "Allium cepa",
+        "kind": "veg",
+        "aliases": [
+          "onion",
+          "onions",
+          "onion sets"
+        ],
+        "about": "A Japanese overwintering onion. Planted in autumn, it's ready in June, weeks before onions planted in spring.",
+        "grow": "Push the sets into the compost with just the tips showing. Birds pull them out in the first fortnight; the mesh stops that.",
+        "spacing": "10 cm apart, rows 25 cm apart",
+        "tip": "Keep the mesh on: allium leaf miner lays eggs in October–November and again in March–April.",
+        "calendar": {
+          "plant": [
+            [
+              9,
+              11
+            ]
+          ],
+          "harvest": [
+            [
+              6,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "id": "broad-beans",
+        "name": "Broad beans",
+        "variety": "Aquadulce Claudia",
+        "latin": "Vicia faba",
+        "kind": "veg",
+        "aliases": [
+          "broad bean",
+          "broad beans",
+          "fava"
+        ],
+        "about": "The hardiest broad bean and the one to sow in autumn. It flowers early, before most of the blackfly arrive.",
+        "grow": "Sow 5 cm deep straight into the compost. Push in a few canes and string as they grow; autumn beans get blown about in March winds.",
+        "spacing": "15–20 cm apart in a double row",
+        "tip": "Pinch out the tips once the first pods set. It puts off blackfly, and the tips are good to eat.",
+        "calendar": {
+          "sowOut": [
+            [
+              10,
+              11
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "harvest": [
+            [
+              5,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "id": "peas",
+        "name": "Peas",
+        "variety": "Douce Provence",
+        "latin": "Pisum sativum",
+        "kind": "veg",
+        "aliases": [
+          "pea",
+          "peas",
+          "overwintering peas"
+        ],
+        "about": "A very hardy, short pea for autumn sowing that grows to about 60 cm. Sweet peas to eat in May, well before spring-sown ones.",
+        "grow": "Sow 4–5 cm deep in a band 15 cm wide, straight into the compost. Push in twiggy sticks when you sow so the tendrils find them.",
+        "spacing": "5–8 cm apart in the band",
+        "tip": "Mice dig up pea seed in winter. If the row comes up gappy, sow again in February.",
+        "calendar": {
+          "sowOut": [
+            [
+              10,
+              11
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "harvest": [
+            [
+              5,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "id": "lambs-lettuce",
+        "name": "Lamb's lettuce",
+        "variety": "",
+        "latin": "Valerianella locusta",
+        "kind": "veg",
+        "aliases": [
+          "lamb's lettuce",
+          "lambs lettuce",
+          "corn salad",
+          "mache"
+        ],
+        "about": "Small rosettes of mild, soft leaves that sit through frost. The classic winter salad.",
+        "grow": "Sow thinly on the compost and cover with 1 cm of sieved compost. Under fleece it keeps growing slowly all winter.",
+        "spacing": "Thin to 10 cm apart",
+        "tip": "Pick whole rosettes or a few leaves from each. Sow again in late summer for next winter.",
+        "calendar": {
+          "sowOut": [
+            [
+              7,
+              10
+            ]
+          ],
+          "harvest": [
+            [
+              10,
+              3
+            ]
+          ]
+        }
+      },
+      {
+        "id": "land-cress",
+        "name": "Land cress",
+        "variety": "",
+        "latin": "Barbarea verna",
+        "kind": "veg",
+        "aliases": [
+          "land cress",
+          "american cress"
+        ],
+        "about": "Peppery like watercress, but it grows in ordinary soil and shrugs off winter.",
+        "grow": "Sow thinly on the compost surface and cover lightly. It likes the damp, so clay suits it.",
+        "spacing": "Thin to 15 cm apart",
+        "tip": "Keep it watered in summer or it runs to seed. Pick the outer leaves.",
+        "calendar": {
+          "sowOut": [
+            [
+              3,
+              9
+            ]
+          ],
+          "harvest": [
+            [
+              6,
+              3
+            ]
+          ]
+        }
+      },
+      {
+        "id": "mizuna",
+        "name": "Mizuna",
+        "variety": "",
+        "latin": "Brassica rapa var. nipposinica",
+        "kind": "veg",
+        "aliases": [
+          "mizuna",
+          "oriental mustard"
+        ],
+        "about": "A Japanese mustard with feathery leaves. Cut it and it grows back several times.",
+        "grow": "Sow thinly in short rows on the compost. Cut leaves at 10 cm, leaving 3 cm stumps to regrow.",
+        "spacing": "Rows 15 cm apart, thinned to 5 cm",
+        "tip": "Flea beetles pepper it with holes in summer. Under fleece in winter it stays clean.",
+        "calendar": {
+          "sowOut": [
+            [
+              3,
+              9
+            ]
+          ],
+          "harvest": [
+            [
+              4,
+              12
+            ]
+          ]
+        }
+      },
+      {
+        "id": "chard",
+        "name": "Chard",
+        "variety": "",
+        "latin": "Beta vulgaris subsp. cicla",
+        "kind": "veg",
+        "aliases": [
+          "chard",
+          "swiss chard",
+          "rainbow chard"
+        ],
+        "about": "Colourful stems and leaves like spinach. Plugs planted in autumn crop through a mild winter and come back strongly in spring.",
+        "grow": "Cut an X in the cardboard, fold the flaps under and plant the plug into the compost. Water it in.",
+        "spacing": "30 cm apart",
+        "tip": "Pick the outer leaves and leave the middle to keep growing. It flowers and finishes in late spring.",
+        "calendar": {
+          "sowIn": [
+            [
+              3,
+              4
+            ]
+          ],
+          "sowOut": [
+            [
+              4,
+              7
+            ]
+          ],
+          "plant": [
+            [
+              5,
+              10
+            ]
+          ],
+          "harvest": [
+            [
+              7,
+              11
+            ],
+            [
+              3,
+              5
+            ]
+          ]
+        }
+      },
+      {
+        "id": "strawberries",
+        "name": "Strawberries",
+        "variety": "",
+        "latin": "Fragaria × ananassa",
+        "kind": "fruit",
+        "aliases": [
+          "strawberry",
+          "strawberries"
+        ],
+        "about": "Planted now, they root over winter and give a proper crop next June.",
+        "grow": "Cut an X in the cardboard and plant with the crown sitting exactly at soil level. Too deep and it rots; too high and it dries out.",
+        "spacing": "35–40 cm apart",
+        "tip": "Net them when the fruit starts to colour, or the birds get there first. Replace the plants every 3–4 years.",
+        "calendar": {
+          "plant": [
+            [
+              8,
+              10
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "harvest": [
+            [
+              6,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "id": "poached-egg",
+        "name": "Poached egg plant",
+        "variety": "",
+        "latin": "Limnanthes douglasii",
+        "kind": "flower",
+        "aliases": [
+          "poached egg",
+          "limnanthes"
+        ],
+        "about": "Low yellow-and-white flowers in late spring. Hoverflies and bees love it, and it seeds itself year after year.",
+        "grow": "Scatter the seed between the strawberries and press it into the compost. Sow now for flowers in May.",
+        "spacing": "Thin to 10 cm apart",
+        "tip": "The hoverfly larvae it feeds go on to eat aphids. Let a few plants set seed in summer.",
+        "calendar": {
+          "sowOut": [
+            [
+              9,
+              10
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "flower": [
+            [
+              5,
+              8
+            ]
+          ]
+        }
+      },
+      {
+        "id": "calendula",
+        "name": "Calendula",
+        "variety": "",
+        "latin": "Calendula officinalis",
+        "kind": "flower",
+        "aliases": [
+          "calendula",
+          "pot marigold",
+          "marigold"
+        ],
+        "about": "Pot marigold. Hoverflies come for the flowers and their larvae eat blackfly. The petals are edible.",
+        "grow": "Sow 1 cm deep in pots in March–April, or straight into the pots outside in April.",
+        "spacing": "3–4 plants per pot",
+        "tip": "Pick off the dead flowers and it flowers until the first frost.",
+        "calendar": {
+          "sowIn": [
+            [
+              3,
+              4
+            ]
+          ],
+          "sowOut": [
+            [
+              4,
+              5
+            ]
+          ],
+          "flower": [
+            [
+              6,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "id": "tomatoes",
+        "name": "Tomatoes",
+        "variety": "",
+        "latin": "Solanum lycopersicum",
+        "kind": "veg",
+        "aliases": [
+          "tomato",
+          "tomatoes"
+        ],
+        "about": "Cherry and bush types suit pots outdoors. Plant them on the sunny south edge after the last frost, which is late May in London.",
+        "grow": "Sow indoors on a warm windowsill. Pot on once, then into a big pot of compost outside.",
+        "spacing": "One plant per 30–40 cm pot",
+        "tip": "Water steadily, since uneven watering splits the fruit. Feed every week once the first flowers open.",
+        "calendar": {
+          "sowIn": [
+            [
+              2,
+              4
+            ]
+          ],
+          "plant": [
+            [
+              5,
+              6
+            ]
+          ],
+          "harvest": [
+            [
+              7,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "id": "potatoes",
+        "name": "Early potatoes",
+        "variety": "",
+        "latin": "Solanum tuberosum",
+        "kind": "veg",
+        "aliases": [
+          "potato",
+          "potatoes",
+          "early potatoes"
+        ],
+        "about": "First earlies such as Charlotte or Rocket, ready about 12 weeks after planting. They follow the winter salads.",
+        "grow": "No-dig: set the seed potatoes on the compost and cover them with 10 cm more compost. Add more compost over the shoots as they grow.",
+        "spacing": "30 cm apart, rows 45 cm apart",
+        "tip": "Lift them when the flowers open. Earlies are usually out before blight arrives.",
+        "calendar": {
+          "plant": [
+            [
+              3,
+              4
+            ]
+          ],
+          "harvest": [
+            [
+              6,
+              7
+            ]
+          ]
+        }
+      },
+      {
+        "id": "courgette",
+        "name": "Courgettes",
+        "variety": "",
+        "latin": "Cucurbita pepo",
+        "kind": "veg",
+        "aliases": [
+          "courgette",
+          "courgettes",
+          "zucchini"
+        ],
+        "about": "One or two plants is plenty for one person. They follow the broad beans in June.",
+        "grow": "Sow indoors in April, or outside in late May. Plant into a pocket of compost and water well.",
+        "spacing": "One plant per square metre",
+        "tip": "Pick them at 15 cm, every two or three days at the peak, or they turn into marrows.",
+        "calendar": {
+          "sowIn": [
+            [
+              4,
+              5
+            ]
+          ],
+          "sowOut": [
+            [
+              5,
+              6
+            ]
+          ],
+          "plant": [
+            [
+              5,
+              6
+            ]
+          ],
+          "harvest": [
+            [
+              7,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "id": "squash",
+        "name": "Winter squash",
+        "variety": "",
+        "latin": "Cucurbita moschata",
+        "kind": "veg",
+        "aliases": [
+          "squash",
+          "butternut",
+          "pumpkin"
+        ],
+        "about": "Trailing plants with fruit that keeps for months. An alternative to courgettes after the beans.",
+        "grow": "Sow indoors in late April. Plant out in early June into a pocket of compost and let it trail along the path edge.",
+        "spacing": "1 m apart",
+        "tip": "Leave the fruit on the plant until the skin is hard, then cure it in the sun for a week before storing.",
+        "calendar": {
+          "sowIn": [
+            [
+              4,
+              5
+            ]
+          ],
+          "plant": [
+            [
+              6,
+              6
+            ]
+          ],
+          "harvest": [
+            [
+              9,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "id": "leeks",
+        "name": "Leeks",
+        "variety": "",
+        "latin": "Allium porrum",
+        "kind": "veg",
+        "aliases": [
+          "leek",
+          "leeks"
+        ],
+        "about": "Planted in midsummer, they stand in the ground all winter until you need them.",
+        "grow": "Sow in modules in March. In June make a 15 cm hole with a dibber through the compost, drop a leek in, fill the hole with water and don't backfill.",
+        "spacing": "15 cm apart, rows 30 cm apart",
+        "tip": "Leek moth and rust are about in London. Insect mesh in summer helps with the moth.",
+        "calendar": {
+          "sowIn": [
+            [
+              3,
+              4
+            ]
+          ],
+          "plant": [
+            [
+              6,
+              7
+            ]
+          ],
+          "harvest": [
+            [
+              10,
+              3
+            ]
+          ]
+        }
+      },
+      {
+        "id": "kale",
+        "name": "Kale",
+        "variety": "",
+        "latin": "Brassica oleracea var. sabellica",
+        "kind": "veg",
+        "aliases": [
+          "kale",
+          "cavolo nero",
+          "winter greens"
+        ],
+        "about": "Cavolo nero or curly kale. You pick it leaf by leaf all winter.",
+        "grow": "Sow in modules in April–May. Plant firmly into the compost in June–July.",
+        "spacing": "45 cm apart",
+        "tip": "Net it against pigeons and cabbage white butterflies from the day you plant it.",
+        "calendar": {
+          "sowIn": [
+            [
+              4,
+              6
+            ]
+          ],
+          "plant": [
+            [
+              6,
+              7
+            ]
+          ],
+          "harvest": [
+            [
+              9,
+              3
+            ]
+          ]
+        }
+      },
+      {
+        "id": "borlotti",
+        "name": "Borlotti beans",
+        "variety": "",
+        "latin": "Phaseolus vulgaris",
+        "kind": "veg",
+        "aliases": [
+          "borlotti",
+          "borlotti beans"
+        ],
+        "about": "A climbing bean with red-speckled pods. Eat them fresh in late summer or dry them for winter.",
+        "grow": "Sow indoors in late April, or outside in late May at the foot of a wigwam on the north side, where it won't shade the bed.",
+        "spacing": "Two plants per cane, canes 30 cm apart",
+        "tip": "For dried beans, leave the pods on the plant until they rattle.",
+        "calendar": {
+          "sowIn": [
+            [
+              4,
+              5
+            ]
+          ],
+          "sowOut": [
+            [
+              5,
+              6
+            ]
+          ],
+          "harvest": [
+            [
+              8,
+              10
+            ]
+          ]
+        }
+      },
+      {
+        "id": "french-beans",
+        "name": "French beans",
+        "variety": "",
+        "latin": "Phaseolus vulgaris",
+        "kind": "veg",
+        "aliases": [
+          "french bean",
+          "french beans",
+          "green beans",
+          "dwarf beans"
+        ],
+        "about": "Dwarf French beans fit where the garlic and onions come out in July.",
+        "grow": "Sow 5 cm deep straight into the compost once the soil is warm. A July sowing crops until the first frost.",
+        "spacing": "20 cm apart",
+        "tip": "Pick them small and often; the more you pick, the more they make.",
+        "calendar": {
+          "sowIn": [
+            [
+              4,
+              5
+            ]
+          ],
+          "sowOut": [
+            [
+              5,
+              7
+            ]
+          ],
+          "harvest": [
+            [
+              7,
+              10
+            ]
+          ]
+        }
       }
     ]
   }

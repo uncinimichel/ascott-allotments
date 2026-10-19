@@ -236,6 +236,9 @@ function openView(id) {
     fact("Cover", COVER_LABEL[p.cover]));
   $("#view-note").textContent = p.note || "";
   $("#view-note").hidden = !p.note;
+  const about = site.catalog ? cropsFor(site.catalog, p, site.layout) : [];
+  $("#view-about").replaceChildren(...about.map((c) => h("a", { href: `catalog.html#${c.id}` }, `${c.name}: how and when to grow it`)));
+  $("#view-about").hidden = !about.length;
   showSheet("view");
   renderPlan();
 }

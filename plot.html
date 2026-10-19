@@ -19,6 +19,7 @@
         <a href="index.html">Clearing</a>
         <a href="plot.html" aria-current="page">Plot</a>
         <a href="tracker.html">Tracker</a>
+        <a href="catalog.html">Catalogue</a>
         <a href="shopping.html">Shopping</a>
         <a href="calendar.html" class="soon">Calendar</a>
       </nav>
@@ -30,7 +31,7 @@
   <main>
     <section id="layout" aria-labelledby="layout-h">
       <h2 id="layout-h">Autumn 2026</h2>
-      <p class="sub">Drawn to scale, north at the top. Tap a block to see what goes there. To record what's actually planted, use the <a href="tracker.html">tracker</a>.</p>
+      <p class="sub">Drawn to scale, north at the top. Tap a block to see what grows there and when. To record what's actually planted, use the <a href="tracker.html">tracker</a>.</p>
       <div class="plan-wrap"><svg id="plan-svg" class="plan" role="group" aria-labelledby="layout-h"></svg></div>
       <div class="plan-legend" aria-label="Key">
         <span><i class="lg mesh"></i>Insect mesh on hoops</span>
@@ -68,7 +69,19 @@
   </ul>
 </nav>
 
+<dialog class="sheet" id="crop-sheet" aria-labelledby="crop-sheet-title">
+  <div class="sheet-head">
+    <div>
+      <h3 id="crop-sheet-title"></h3>
+      <div class="latin" id="crop-sheet-sub"></div>
+    </div>
+    <button class="btn ghost small" type="button" data-close>Close</button>
+  </div>
+  <div id="crop-sheet-body"></div>
+</dialog>
+
 <script src="js/common.js"></script>
+<script src="js/crops.js"></script>
 <script src="js/plan.js"></script>
 <script src="js/plot.js"></script>
 </body>
