@@ -1,137 +1,612 @@
 {
-  "plot": {
-    "name": "Ascott Allotments, Ealing",
-    "size": { "w": 3, "h": 3 },
-    "beds": [
-      { "id": "A", "name": "Bed A", "w": 1.2, "h": 3, "x": 0.15, "y": 0, "status": "Plant this autumn",
-        "blocks": [
-          { "crop": "Garlic", "from": 0, "to": 1, "when": "Oct–Nov", "note": "Cloves 15 cm apart, tip just below the compost" },
-          { "crop": "Autumn onion sets", "from": 1, "to": 2, "when": "Oct–Nov", "note": "10 cm apart, tips showing; net against birds" },
-          { "crop": "Broad beans", "from": 2, "to": 3, "when": "Oct–Nov", "note": "Aquadulce Claudia, double row, 20 cm apart" }
-        ] },
-      { "id": "B", "name": "Bed B", "w": 1.2, "h": 3, "x": 1.8, "y": 0, "status": "Covered until spring",
-        "blocks": [
-          { "crop": "Cardboard", "from": 0, "to": 3, "when": "Now → spring", "note": "Overlapped 15 cm and weighted with bricks or planks. Add compost on top in late winter, or now if you have enough" }
-        ] }
-    ],
-    "path": { "x": 1.35, "w": 0.45, "label": "Path 45 cm" },
-    "strawberries": { "x": 0, "w": 0.15, "label": "Strawberry row", "note": "Along the paving-slab path. The beds and path use 2.85 m of the 3 m, so measure this strip on site." }
+  "site": {
+    "name": "Ascott Allotments",
+    "area": "South Ealing W5",
+    "runBy": {
+      "name": "Friends of Ascott Allotments",
+      "email": "ascottfriends@gmail.com"
+    },
+    "myPlot": {
+      "name": "Starter Bed 11",
+      "where": "Starter Bed Community area, south-west corner by Station Gate (end of Long Lane)",
+      "water": "Water point right next to the starter beds",
+      "woodChip": "Free wood chip is delivered at the Ranelagh Rd and Queen Anne's Gardens gates, on the other side of the site"
+    },
+    "soil": "Heavy yellow Ealing clay that waterlogs in winter. Compost goes on top and is never dug in."
   },
-
-  "weedGroups": [
-    { "id": "easy", "name": "Easy annuals", "blurb": "They die in winter. Pull them before they seed and they won't come back." },
-    { "id": "check", "name": "Check first: bindweed", "blurb": "Both come out, but two plants share the name. One is gone in a week, the other takes a season of pulling. Pull a stem gently and look at the root." },
-    { "id": "problem", "name": "Possible problem: grass", "blurb": "A clump of grass is easy. Couch grass spreads by underground runners and regrows from every piece." },
-    { "id": "keep", "name": "Keep: not weeds", "blurb": "Leave these in the ground." }
+  "tradingHuts": {
+    "org": "Ealing & Hanwell Allotment Association (EHAA)",
+    "url": "https://ealinghanwellallotments.org.uk",
+    "hutsUrl": "https://ealinghanwellallotments.org.uk/trading_huts/",
+    "closedSeason": {
+      "label": "Closed December to mid-February",
+      "fromMonth": 12,
+      "untilMonth": 2,
+      "untilDay": 15
+    },
+    "huts": [
+      {
+        "name": "Ascott hut",
+        "where": null,
+        "hours": [
+          {
+            "day": 6,
+            "open": "14:00",
+            "close": "16:00"
+          },
+          {
+            "day": 0,
+            "open": "10:00",
+            "close": "12:00"
+          }
+        ]
+      },
+      {
+        "name": "Searchlight hut",
+        "where": "84a Haslemere Ave, W7 2AU",
+        "hours": [
+          {
+            "day": 6,
+            "open": "12:00",
+            "close": "15:00"
+          },
+          {
+            "day": 0,
+            "open": "10:00",
+            "close": "12:00"
+          }
+        ]
+      }
+    ],
+    "membership": {
+      "validTo": "2027-01-31",
+      "perks": "Members get discounted seed potatoes, onion sets, shallots, garlic and more."
+    }
+  },
+  "plot": {
+    "size": {
+      "w": 3,
+      "h": 3
+    },
+    "note": "About 3 × 3 m, north at the top. The beds and path take 2.85 m north to south; the strawberry row uses the last 15 cm along the slab path, so measure it on site. Which end is west is a guess: swap crops in the tracker if it's the other way round.",
+    "areas": [
+      {
+        "id": "B",
+        "name": "Bed B",
+        "side": "North bed",
+        "x": 0,
+        "y": 0,
+        "w": 3,
+        "h": 1.2,
+        "note": "Winter salads under fleece, overwintering peas"
+      },
+      {
+        "id": "A",
+        "name": "Bed A",
+        "side": "South bed",
+        "x": 0,
+        "y": 1.65,
+        "w": 3,
+        "h": 1.2,
+        "note": "Garlic and onions under insect mesh, broad beans"
+      },
+      {
+        "id": "S",
+        "name": "Strawberry row",
+        "side": "South edge, along the slab path",
+        "x": 0,
+        "y": 2.85,
+        "w": 3,
+        "h": 0.15,
+        "note": "Strawberries 35–40 cm apart"
+      }
+    ],
+    "path": {
+      "x": 0,
+      "y": 1.2,
+      "w": 3,
+      "h": 0.45,
+      "label": "path · cardboard + wood chip"
+    },
+    "pots": [
+      {
+        "id": "calendula",
+        "label": "calendula pots, from spring",
+        "x": 2.5,
+        "y": 3.24,
+        "n": 3
+      }
+    ],
+    "companions": [
+      {
+        "area": "S",
+        "from": 2,
+        "to": 3,
+        "label": "Poached egg plant"
+      }
+    ]
+  },
+  "layout": [
+    {
+      "id": "p6",
+      "bed": "B",
+      "from": 1.5,
+      "to": 3,
+      "crop": "Overwintering peas",
+      "variety": "Douce Provence",
+      "cover": "",
+      "harvest": "2027-05",
+      "note": "On twiggy sticks. Sow straight into the compost, no hole in the cardboard."
+    },
+    {
+      "id": "p5",
+      "bed": "B",
+      "from": 0,
+      "to": 1.5,
+      "crop": "Winter salads",
+      "variety": "Lamb's lettuce, land cress, mizuna, chard plugs",
+      "cover": "fleece",
+      "harvest": "",
+      "note": "Under fleece on hoops. Cut an X in the cardboard for the chard plugs."
+    },
+    {
+      "id": "p1",
+      "bed": "A",
+      "from": 0,
+      "to": 1,
+      "crop": "Garlic",
+      "variety": "Solent Wight",
+      "cover": "mesh",
+      "harvest": "2027-06",
+      "note": "Cloves 15 cm apart, rows 25 cm. Push into the compost, no hole in the cardboard. Arriving about 3–6 Nov."
+    },
+    {
+      "id": "p2",
+      "bed": "A",
+      "from": 1,
+      "to": 2,
+      "crop": "Autumn onion sets",
+      "variety": "Senshyu",
+      "cover": "mesh",
+      "harvest": "2027-06",
+      "note": "10 cm apart, tips showing. Mesh keeps off allium leaf miner."
+    },
+    {
+      "id": "p3",
+      "bed": "A",
+      "from": 2,
+      "to": 3,
+      "crop": "Broad beans",
+      "variety": "Aquadulce Claudia",
+      "cover": "",
+      "harvest": "2027-05",
+      "note": "15–20 cm apart. Calendula pots at this end (sow March–April) bring hoverflies against blackfly."
+    },
+    {
+      "id": "p4",
+      "bed": "S",
+      "from": 0,
+      "to": 3,
+      "crop": "Strawberries",
+      "variety": "",
+      "cover": "",
+      "harvest": "2027-06",
+      "inGround": true,
+      "note": "35–40 cm apart, with poached egg plant between them at the bean end. Cut an X in the cardboard to plant."
+    }
   ],
-
+  "succession": [
+    {
+      "now": "Winter salads",
+      "next": "Early potatoes",
+      "when": "March"
+    },
+    {
+      "now": "Broad beans",
+      "next": "Courgettes or squash",
+      "when": "June"
+    },
+    {
+      "now": "Peas",
+      "next": "Leeks, kale, borlotti wigwam on the north side",
+      "when": "June"
+    },
+    {
+      "now": "Garlic and onions",
+      "next": "French beans or winter greens",
+      "when": "July"
+    }
+  ],
+  "pots": [
+    {
+      "name": "Calendula",
+      "where": "2–3 pots at the end of Bed A by the beans",
+      "when": "Sow March–April"
+    },
+    {
+      "name": "Tomatoes",
+      "where": "Pots on the sunny south edge",
+      "when": "Summer"
+    },
+    {
+      "name": "Lemon and lime",
+      "where": "Pots; on the plot in summer",
+      "when": "Home October–April"
+    }
+  ],
+  "weedGroups": [
+    {
+      "id": "easy",
+      "name": "Easy annuals",
+      "blurb": "They die in winter. Pull them before they seed and they won't come back."
+    },
+    {
+      "id": "check",
+      "name": "Check first: bindweed",
+      "blurb": "Both come out, but two plants share the name. One is gone in a week, the other takes a season of pulling. Pull a stem gently and look at the root."
+    },
+    {
+      "id": "problem",
+      "name": "Possible problem: grass",
+      "blurb": "A clump of grass is easy. Couch grass spreads by underground runners and regrows from every piece."
+    },
+    {
+      "id": "keep",
+      "name": "Keep: not weeds",
+      "blurb": "Leave these in the ground."
+    }
+  ],
   "weeds": [
-    { "id": "fat-hen", "group": "easy", "name": "Fat hen", "latin": "Chenopodium album",
-      "life": "Annual", "difficulty": 1,
+    {
+      "id": "fat-hen",
+      "group": "easy",
+      "name": "Fat hen",
+      "latin": "Chenopodium album",
+      "life": "Annual",
+      "difficulty": 1,
       "spot": "Grey-green diamond leaves with a white mealy dust; grows tall and upright, seeds in dense spikes.",
       "remove": "Pull small ones. Cut big ones at ground level and leave the root in the soil to rot.",
       "dispose": "Compost if not in seed. Bag any plant with seed heads.",
-      "photo": "img/plants/fat-hen.jpg" },
-    { "id": "redshank", "group": "easy", "name": "Redshank / knotgrass", "latin": "Persicaria maculosa, Polygonum aviculare",
-      "life": "Annual", "difficulty": 1,
+      "photo": "img/plants/fat-hen.jpg"
+    },
+    {
+      "id": "redshank",
+      "group": "easy",
+      "name": "Redshank / knotgrass",
+      "latin": "Persicaria maculosa, Polygonum aviculare",
+      "life": "Annual",
+      "difficulty": 1,
       "spot": "Redshank: red stems swollen at the joints, a dark blotch in the middle of each leaf, pink flower spikes. Knotgrass: low wiry mat with tiny leaves.",
       "remove": "Pull, or cut at the base. Knotgrass: cut the mat off at ground level; its root rots under cardboard.",
       "dispose": "Compost if not in seed. Bag seed heads.",
-      "photo": "img/plants/redshank.jpg" },
-    { "id": "black-medick", "group": "easy", "name": "Black medick / trefoil", "latin": "Medicago lupulina",
-      "life": "Annual", "difficulty": 1,
+      "photo": "img/plants/redshank.jpg"
+    },
+    {
+      "id": "black-medick",
+      "group": "easy",
+      "name": "Black medick / trefoil",
+      "latin": "Medicago lupulina",
+      "life": "Annual",
+      "difficulty": 1,
       "spot": "Low sprawl of clover-like leaves in threes, tiny yellow pom-pom flowers, black seed pods.",
       "remove": "Cut at ground level or just cover it. Its roots add nitrogen as they rot, so no need to get them out.",
       "dispose": "Compost.",
-      "photo": "img/plants/black-medick.jpg" },
-    { "id": "chickweed", "group": "easy", "name": "Chickweed", "latin": "Stellaria media",
-      "life": "Annual", "difficulty": 1,
+      "photo": "img/plants/black-medick.jpg"
+    },
+    {
+      "id": "chickweed",
+      "group": "easy",
+      "name": "Chickweed",
+      "latin": "Stellaria media",
+      "life": "Annual",
+      "difficulty": 1,
       "spot": "Soft bright-green mats, small oval leaves in pairs, tiny white star flowers. Grows all winter.",
       "remove": "Rake it up by hand, or just cover it: cardboard smothers it.",
       "dispose": "Compost.",
-      "photo": "img/plants/chickweed.jpg" },
-
-    { "id": "black-bindweed", "group": "check", "name": "Black bindweed", "latin": "Fallopia convolvulus",
-      "life": "Annual", "difficulty": 1,
+      "photo": "img/plants/chickweed.jpg"
+    },
+    {
+      "id": "black-bindweed",
+      "group": "check",
+      "name": "Black bindweed",
+      "latin": "Fallopia convolvulus",
+      "life": "Annual",
+      "difficulty": 1,
       "spot": "Heart-shaped leaves, twining stems, tiny greenish flowers in clusters. Root: one thin, short root. No white runners.",
       "remove": "Pull and unwind it from whatever it climbs. The root is tiny, so nothing to dig.",
       "dispose": "Compost if not in seed.",
-      "photo": "img/plants/black-bindweed.jpg", "checkInPerson": true },
-    { "id": "field-bindweed", "group": "check", "name": "Field bindweed", "latin": "Convolvulus arvensis",
-      "life": "Perennial", "difficulty": 3,
+      "photo": "img/plants/black-bindweed.jpg",
+      "checkInPerson": true
+    },
+    {
+      "id": "field-bindweed",
+      "group": "check",
+      "name": "Field bindweed",
+      "latin": "Convolvulus arvensis",
+      "life": "Perennial",
+      "difficulty": 3,
       "spot": "Arrow-shaped leaves, white or pink trumpet flowers. Root: white, brittle, snaps easily and runs sideways deep in the soil.",
-      "remove": "Don't dig: every broken root regrows, so digging spreads it. Cut it at ground level, cover with cardboard and compost, then pull every shoot that appears, weekly. It weakens over a season or two once it can't feed.",
+      "remove": "Don't dig: every broken root regrows, so digging spreads it. Expect shoots where roots were broken while clearing. Cover with cardboard and compost, then pull every shoot that appears, weekly. It weakens over a season or two once it can't feed.",
       "dispose": "Never compost pulled roots or shoots fresh. Drown them in a lidded bucket of water for 4+ weeks, then the sludge can go on the heap.",
-      "photo": "img/plants/field-bindweed.jpg", "checkInPerson": true },
-
-    { "id": "grass-tussock", "group": "problem", "name": "Grass tussocks", "latin": "Various clump-forming grasses",
-      "life": "Perennial", "difficulty": 2,
+      "photo": "img/plants/field-bindweed.jpg",
+      "checkInPerson": true
+    },
+    {
+      "id": "grass-tussock",
+      "group": "problem",
+      "name": "Grass tussocks",
+      "latin": "Various clump-forming grasses",
+      "life": "Perennial",
+      "difficulty": 2,
       "spot": "A tight clump with a ball of fibrous roots. Pull it and nothing trails behind.",
       "remove": "Cut it down to the ground with shears, or slice the top off flat with the spade. Cardboard over the stump finishes it.",
       "dispose": "Stack upside down to rot down, or compost broken up. Bag seed heads.",
-      "photo": null, "checkInPerson": true },
-    { "id": "couch-grass", "group": "problem", "name": "Couch grass", "latin": "Elymus repens",
-      "life": "Perennial", "difficulty": 3,
+      "photo": null,
+      "checkInPerson": true
+    },
+    {
+      "id": "couch-grass",
+      "group": "problem",
+      "name": "Couch grass",
+      "latin": "Elymus repens",
+      "life": "Perennial",
+      "difficulty": 3,
       "spot": "Grass that runs in lines, not clumps. Dig: wiry white runners with sharp pointed tips, new shoots at the joints.",
       "remove": "Don't dig or rotavate: it chops the runners into new plants. Cut it short, use a double layer of cardboard well overlapped, and pull any blades that find a gap.",
       "dispose": "Drown pulled runners in the lidded bucket, or bag them. Never compost them fresh.",
-      "photo": "img/plants/couch-grass.jpg", "checkInPerson": true },
-
-    { "id": "strawberry", "group": "keep", "name": "Strawberries", "latin": "Fragaria × ananassa",
-      "life": "Perennial", "difficulty": 0,
+      "photo": "img/plants/couch-grass.jpg",
+      "checkInPerson": true
+    },
+    {
+      "id": "strawberry",
+      "group": "keep",
+      "name": "Strawberries",
+      "latin": "Fragaria × ananassa",
+      "life": "Perennial",
+      "difficulty": 0,
       "spot": "Toothed leaves in threes, runners rooting along the ground.",
       "remove": "Keep. Weed around them, cut off old brown leaves; pot up strong runners for new plants.",
       "dispose": null,
-      "photo": "img/plants/strawberry.jpg" },
-    { "id": "lambs-ear", "group": "keep", "name": "Lamb's ear", "latin": "Stachys byzantina",
-      "life": "Perennial", "difficulty": 0,
+      "photo": "img/plants/strawberry.jpg"
+    },
+    {
+      "id": "lambs-ear",
+      "group": "keep",
+      "name": "Lamb's ear",
+      "latin": "Stachys byzantina",
+      "life": "Perennial",
+      "difficulty": 0,
       "spot": "Soft, furry silver leaves. Bees love the flower spikes.",
       "remove": "Keep, or move it to an edge. It spreads slowly; split it in spring if it gets big.",
       "dispose": null,
-      "photo": "img/plants/lambs-ear.jpg" },
-    { "id": "sunflower", "group": "keep", "name": "Sunflowers", "latin": "Helianthus annuus",
-      "life": "Annual", "difficulty": 0,
+      "photo": "img/plants/lambs-ear.jpg"
+    },
+    {
+      "id": "sunflower",
+      "group": "keep",
+      "name": "Sunflowers",
+      "latin": "Helianthus annuus",
+      "life": "Annual",
+      "difficulty": 0,
       "spot": "One big head per stem, a single thick root, no tubers.",
       "remove": "Let the heads dry for the birds or save seed, then pull the stems.",
       "dispose": "Chop stems small for compost.",
-      "photo": "img/plants/sunflower.jpg" },
-    { "id": "jerusalem-artichoke", "group": "keep", "name": "…or Jerusalem artichokes", "latin": "Helianthus tuberosus",
-      "life": "Perennial", "difficulty": 2,
+      "photo": "img/plants/sunflower.jpg"
+    },
+    {
+      "id": "jerusalem-artichoke",
+      "group": "keep",
+      "name": "…or Jerusalem artichokes",
+      "latin": "Helianthus tuberosus",
+      "life": "Perennial",
+      "difficulty": 2,
       "spot": "Looks like a sunflower with many smaller flowers. Scrape the soil at the base with your fingers: knobbly tubers mean artichokes.",
       "remove": "If tubers: lift them and eat them through winter (this is harvesting, not digging the bed). Any tuber left regrows, so decide whether they stay and where.",
       "dispose": "Eat the tubers. Stems to compost.",
-      "photo": "img/plants/jerusalem-artichoke.jpg", "checkInPerson": true }
+      "photo": "img/plants/jerusalem-artichoke.jpg",
+      "checkInPerson": true
+    }
   ],
-
-  "tools": [
-    { "id": "spade", "name": "Spade", "have": true },
-    { "id": "fork", "name": "Stainless digging fork", "have": true, "note": "Not for clearing. Handy for spreading compost and lifting crops" },
-    { "id": "gloves", "name": "Gloves", "why": "Thorny, stinging and muddy jobs" },
-    { "id": "shears", "name": "Shears or a kama sickle", "why": "Cutting tall weeds down before digging" },
-    { "id": "hori-hori", "name": "Hori-hori", "why": "Levering out taproots and planting" },
-    { "id": "buckets", "name": "Buckets", "why": "Carrying weeds and compost" },
-    { "id": "rubble-bags", "name": "Rubble bags", "why": "Seed heads and waste" },
-    { "id": "lidded-bucket", "name": "Lidded bucket", "why": "Drowning bindweed and couch roots" },
-    { "id": "weights", "name": "Bricks or planks", "why": "Holding Bed B's cardboard down in the wind" },
-    { "id": "cardboard", "name": "Cardboard", "why": "Plain brown, tape and staples removed. About 12 m² to cover the whole plot with overlaps" },
-    { "id": "compost", "name": "Compost", "why": "About 0.4 m³ for Bed A at 10–12 cm deep (8–10 bags of 50 L)" },
-    { "id": "mesh", "name": "Insect mesh and hoops", "why": "Pigeons on the brassicas and broad beans" }
-  ],
-
   "steps": [
-    { "title": "Cut down and bag seed heads", "body": "Shears or sickle first. Bag anything in seed so it doesn't drop on the plot." },
-    { "title": "Cut the rest at ground level", "body": "No digging, no forking. Leave the roots in the soil: they rot under the cardboard and feed it. Pull only what comes up easily." },
-    { "title": "Make Bed A and plant it", "body": "Overlap cardboard by 15 cm, wet it, then 10–12 cm of compost on top. Plant garlic, onion sets and broad beans straight into the compost." },
-    { "title": "Cover Bed B with cardboard", "body": "Overlap the sheets by 15 cm and weigh them down. Add compost on top in late winter, or now if you have enough. Bare cardboard counts as covered, not cultivated, so Bed A is your cultivated part for now." },
-    { "title": "Pull bindweed shoots weekly", "body": "Any shoot that pokes through the cardboard or round the edges. Each one pulled starves the root." }
+    {
+      "title": "Clear the seed heads",
+      "body": "Cut them off with shears or the sickle and bag them so they don't drop on the plot."
+    },
+    {
+      "title": "Cut the rest at ground level",
+      "body": "No digging. Leave the roots in: they rot under the cardboard. The bindweed roots you've already broken will send up shoots; that's expected."
+    },
+    {
+      "title": "Double layer of cardboard",
+      "body": "On both beds and the path. Stagger the joins, overlap 15 cm, and wet it well."
+    },
+    {
+      "title": "15 cm of compost on both beds",
+      "body": "About 1.1 m³, or 2 bulk bags. On heavy clay that waterlogs, the compost stays on top and is never dug in."
+    },
+    {
+      "title": "Wood chip on the path",
+      "body": "Over the cardboard. It's free at the Ranelagh Rd and Queen Anne's Gardens gates."
+    },
+    {
+      "title": "Plant",
+      "body": "Garlic, onions, beans and peas go straight into the compost with no hole in the cardboard. Cut an X only for strawberries and transplants like the chard plugs."
+    },
+    {
+      "title": "Pull bindweed shoots weekly",
+      "body": "Any shoot that pokes through the cardboard or round the edges. Each one pulled starves the root."
+    }
   ],
-
   "rules": {
-    "cultivated": [ { "months": 3, "pct": 25 }, { "months": 6, "pct": 50 }, { "months": 12, "pct": 75 } ],
+    "cultivated": [
+      {
+        "months": 3,
+        "pct": 25
+      },
+      {
+        "months": 6,
+        "pct": 50
+      },
+      {
+        "months": 12,
+        "pct": 75
+      }
+    ],
     "notes": [
       "Covered ground doesn't count as cultivated.",
       "Carpet is banned as a cover.",
       "Water is off from the end of October to April."
+    ]
+  },
+  "shopping": {
+    "groups": [
+      {
+        "id": "ordered",
+        "name": "Ordered from Suttons",
+        "sub": "Arriving about 23–27 Oct; the garlic about 3–6 Nov. Tick each one when it arrives.",
+        "check": "Arrived",
+        "items": [
+          {
+            "id": "garlic",
+            "name": "Garlic Solent Wight",
+            "qty": "2 bulbs",
+            "why": "Arrives about 3–6 Nov"
+          },
+          {
+            "id": "onion",
+            "name": "Onion Senshyu",
+            "qty": "250 g"
+          },
+          {
+            "id": "broad-bean",
+            "name": "Broad bean Aquadulce Claudia"
+          },
+          {
+            "id": "pea",
+            "name": "Pea Douce Provence"
+          },
+          {
+            "id": "poached-egg",
+            "name": "Poached egg plant"
+          },
+          {
+            "id": "calendula",
+            "name": "Calendula Daisy Mix"
+          },
+          {
+            "id": "seaweed",
+            "name": "Maxicrop seaweed",
+            "qty": "500 ml"
+          },
+          {
+            "id": "citrus-food",
+            "name": "Chempak citrus food"
+          }
+        ]
+      },
+      {
+        "id": "buy",
+        "name": "Still to buy",
+        "sub": "Check the trading hut first: members pay less.",
+        "check": "Got it",
+        "items": [
+          {
+            "id": "mesh",
+            "name": "Insect mesh",
+            "qty": "2 × 5 m, 0.8 mm",
+            "why": "Over the garlic and onions against allium leaf miner"
+          },
+          {
+            "id": "hoops",
+            "name": "Hoops",
+            "why": "To hold up the mesh and the fleece"
+          },
+          {
+            "id": "fleece",
+            "name": "Fleece",
+            "why": "Over the winter salads"
+          },
+          {
+            "id": "string-line",
+            "name": "String line and pegs",
+            "why": "Straight rows"
+          },
+          {
+            "id": "dibber",
+            "name": "Dibber and labels"
+          },
+          {
+            "id": "hori-hori",
+            "name": "Hori-hori",
+            "qty": "Niwaki"
+          },
+          {
+            "id": "compost",
+            "name": "Compost",
+            "qty": "about 1.1 m³ = 2 bulk bags",
+            "why": "15 cm on both beds"
+          }
+        ]
+      },
+      {
+        "id": "free",
+        "name": "Gather for free",
+        "check": "Got it",
+        "items": [
+          {
+            "id": "cardboard",
+            "name": "Cardboard",
+            "qty": "about 20 m²",
+            "why": "Double layer on both beds plus the path. Plain brown, tape and staples removed"
+          },
+          {
+            "id": "woodchip",
+            "name": "Wood chip",
+            "why": "For the path. Delivered free at the Ranelagh Rd and Queen Anne's Gardens gates"
+          }
+        ]
+      },
+      {
+        "id": "kit",
+        "name": "Clearing kit",
+        "check": "Have it",
+        "items": [
+          {
+            "id": "spade",
+            "name": "Spade",
+            "have": true
+          },
+          {
+            "id": "fork",
+            "name": "Stainless digging fork",
+            "have": true,
+            "why": "For spreading compost and lifting crops, not for digging the beds"
+          },
+          {
+            "id": "gloves",
+            "name": "Gloves"
+          },
+          {
+            "id": "shears",
+            "name": "Shears or a kama sickle",
+            "why": "Cutting weeds down to the ground"
+          },
+          {
+            "id": "buckets",
+            "name": "Buckets"
+          },
+          {
+            "id": "rubble-bags",
+            "name": "Rubble bags",
+            "why": "Seed heads and waste"
+          },
+          {
+            "id": "lidded-bucket",
+            "name": "Lidded bucket",
+            "why": "Drowning bindweed roots and shoots"
+          }
+        ]
+      }
     ]
   }
 }

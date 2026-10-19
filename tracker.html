@@ -14,10 +14,12 @@
 <div class="wrap">
   <header class="mast">
     <div class="mast-top">
-      <span>Ascott Allotments · Ealing · 3 × 3 m</span>
+      <span>Ascott Allotments · Starter Bed 11</span>
       <nav aria-label="Pages">
         <a href="index.html">Clearing</a>
+        <a href="plot.html">Plot</a>
         <a href="tracker.html" aria-current="page">Tracker</a>
+        <a href="shopping.html">Shopping</a>
         <a href="calendar.html" class="soon">Calendar</a>
       </nav>
     </div>
@@ -33,7 +35,9 @@
         <span><i class="lg planned"></i>Planned</span>
         <span><i class="lg growing"></i>Growing</span>
         <span><i class="lg ready"></i>Ready to harvest</span>
-        <span><i class="lg covered"></i>Covered with cardboard</span>
+        <span><i class="lg mesh"></i>Insect mesh</span>
+        <span><i class="lg fleece"></i>Fleece</span>
+        <span><i class="lg covered"></i>Bare cardboard</span>
       </div>
       <button class="btn" type="button" id="add-btn">Add planting</button>
     </section>
@@ -108,6 +112,7 @@
       <label>Planted out <input type="date" name="planted"></label>
       <label>Harvest from <input type="month" name="harvest"></label>
     </div>
+    <label>Cover <select name="cover"><option value="">None</option><option value="mesh">Insect mesh</option><option value="fleece">Fleece</option></select></label>
     <label>Note <input type="text" name="note" autocomplete="off" placeholder="spacing, variety notes…"></label>
     <div class="actions">
       <button class="btn" type="submit" id="form-save">Save</button>

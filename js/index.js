@@ -1,4 +1,4 @@
-// Index page: weed guide, drawn plot plan, tools, steps, rules, progress photos.
+// Clearing page: weed guide, bed prep steps, site rules, progress photos.
 
 (async function main() {
   let site, credits;
@@ -10,8 +10,6 @@
     throw err;
   }
   renderWeeds(site, credits);
-  renderPlan(site.plot);
-  renderTools(site.tools);
   renderSteps(site.steps);
   renderRules(site.rules);
   renderCredits(site.weeds, credits);
@@ -67,70 +65,6 @@ function weedCard(w, credit) {
         h("div", {}, h("dt", {}, "How to tell"), h("dd", {}, w.spot)),
         h("div", {}, h("dt", {}, w.group === "keep" ? "What to do" : "Remove"), h("dd", {}, w.remove)),
         w.dispose && h("div", {}, h("dt", {}, "Dispose"), h("dd", {}, w.dispose)))));
-}
-
-/* ---------- Plan ---------- */
-function renderPlan(plot) {
-  const svg = $("#plan-svg");
-  const key = $("#plan-key");
-  const rows = [];
-  const blocks = [];
-  const select = (i) => {
-    blocks.forEach((g, j) => g.setAttribute("aria-pressed", String(i === j)));
-    rows.forEach((r, j) => r.classList.toggle("active", i === j));
-    if (i >= 0) rows[i].scrollIntoView({ block: "nearest" });
-  };
-
-  drawPlot(svg, plot, (layer, areas) => {
-    const st = plot.strawberries;
-    const S = areas.S;
-    addBlock(layer, { ...S, colour: "#93c27c", title: st.label, note: st.note, sub: "Kept" });
-    for (let y = 0.2; y < S.h; y += 0.3) layer.append(sv("circle", { cx: S.x + S.w / 2, cy: y, r: 0.035, fill: "#e2784c", "aria-hidden": "true", "pointer-events": "none" }));
-    for (const bed of plot.beds) {
-      for (const b of bed.blocks) {
-        addBlock(layer, {
-          x: bed.x, y: bed.y + b.from, w: bed.w, h: b.to - b.from, colour: cropColour(b.crop),
-          title: `${bed.name}: ${b.crop}`, note: b.note, sub: b.when, label: b.crop,
-        });
-      }
-    }
-  });
-
-  function addBlock(layer, { x, y, w, h: bh, colour, title, note, sub, label }) {
-    const i = rows.length;
-    const g = sv("g", { class: "crop", tabindex: 0, role: "button", "aria-pressed": "false", "aria-label": title,
-      onclick: () => select(i),
-      onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(i); } } },
-      sv("rect", { x, y, width: w, height: bh, fill: colour, "fill-opacity": 0.2 }));
-    if (label) g.append(blockLabel(x, y, w, bh, label));
-    layer.append(g);
-    blocks.push(g);
-    const row = h("div", { class: "row" },
-      h("span", { class: "swatch", style: `background:${colour}`, "aria-hidden": "true" }),
-      h("div", {}, h("b", {}, title), sub && ` · ${sub}`, h("small", {}, note)));
-    rows.push(row);
-    key.append(row);
-  }
-}
-
-/* ---------- Tools ---------- */
-function renderTools(tools) {
-  const KEY = "ascott.tools";
-  const saved = store.get(KEY, null);
-  const state = saved ?? Object.fromEntries(tools.map((t) => [t.id, !!t.have]));
-  const list = $("#tools-list");
-  const count = () => {
-    const n = tools.filter((t) => state[t.id]).length;
-    $("#tools-count").textContent = `${n} of ${tools.length} sorted.`;
-  };
-  for (const t of tools) {
-    const id = `tool-${t.id}`;
-    list.append(h("li", {}, h("label", { for: id },
-      h("input", { type: "checkbox", id, checked: !!state[t.id],
-        onchange: (e) => { state[t.id] = e.target.checked; store.set(KEY, state); count(); } }),
-      h("span", {}, h("span", { class: "what" }, t.name), h("span", { class: "why" }, t.have ? ["Already have it", t.note && `. ${t.note}`] : t.why)))));
-  }
-  count();
 }
 
 /* ---------- Steps ---------- */

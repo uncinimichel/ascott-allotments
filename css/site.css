@@ -260,12 +260,13 @@ textarea { width: 100%; resize: vertical; }
 /* ---------- Tracker: interactive plan ---------- */
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 #plan { padding-top: 24px; }
-.tracker-plan .ground { fill: #ffffff; fill-opacity: 0; cursor: copy; pointer-events: all; }
+.tracker-plan .ground { fill: #ffffff; fill-opacity: 0; stroke: none; cursor: copy; pointer-events: fill; }
 .tracker-plan .ground:hover, .tracker-plan .ground:focus-visible { fill-opacity: .05; outline: none; }
 .tracker-plan .ground.covered { fill: #b08a5a; fill-opacity: .16; }
 .tracker-plan .ground.covered:hover { fill-opacity: .24; }
 .tracker-plan .lbl-soft { fill: var(--straw-dim); }
 .tracker-plan .crop .hit { fill: transparent !important; stroke: none !important; }
+.tracker-plan .crop rect.cover { fill-opacity: 1 !important; stroke: #f4eee2 !important; stroke-opacity: .35; stroke-width: .008 !important; stroke-dasharray: none !important; }
 .tracker-plan .crop rect { fill-opacity: .3; stroke-width: .012; stroke-opacity: .85; }
 .tracker-plan .crop.planned rect { fill-opacity: .08; stroke-dasharray: .045 .03; }
 .tracker-plan .crop.ready rect { fill-opacity: .5; }
@@ -343,6 +344,37 @@ textarea { width: 100%; resize: vertical; }
 .tick { position: absolute; top: 4px; transform: translateX(-50%); white-space: nowrap; }
 .tick:first-child { transform: none; }
 .tick:last-child { transform: translateX(-100%); }
+
+/* ---------- Plot page ---------- */
+.plan-note { font-size: 14px; color: var(--straw-dim); margin-top: 12px; }
+.plan .cover { stroke: #f4eee2; stroke-opacity: .35; stroke-width: .008; }
+.lg.mesh { background: repeating-linear-gradient(0deg, transparent 0 3px, #f4eee288 3px 4px), repeating-linear-gradient(90deg, transparent 0 3px, #f4eee288 3px 4px); }
+.lg.fleece { background: radial-gradient(circle, #f4eee2aa 1px, transparent 1.5px) 0 0 / 5px 5px, #f4eee222; }
+.lg.pot { border-radius: 50%; width: 12px; border-style: dashed; border-color: #e3b375; background: #e3b37533; }
+.facts-list { margin: 0; display: grid; grid-template-columns: minmax(84px, max-content) 1fr; gap: 12px 16px; }
+.facts-list dt { font: 600 12px/1.6 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--straw-dim); }
+.facts-list dd { margin: 0; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--edge); border-radius: var(--radius); }
+table.plain { width: 100%; border-collapse: collapse; font-size: 15px; }
+table.plain th { text-align: left; font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--straw-dim); background: var(--loam-2); }
+table.plain th, table.plain td { padding: 10px 12px; border-bottom: 1px solid var(--edge); vertical-align: top; }
+table.plain tr:last-child td { border-bottom: 0; }
+table.plain td.mono { white-space: nowrap; color: var(--straw-dim); font-size: 13px; }
+.lede a { color: var(--straw); }
+
+/* ---------- Shopping page ---------- */
+.group-title { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.qty { color: var(--straw-dim); font-weight: 400; }
+.huts { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.hut { background: var(--loam); border: 1px solid var(--edge); border-radius: var(--radius); padding: 14px 16px; }
+.hut-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.hut-status { margin: 6px 0 10px; }
+.hours { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.hours li { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; }
+.hut-where { margin: 10px 0 0; color: var(--straw-dim); font-size: 14px; }
+.hut-season { grid-column: 1 / -1; margin: 0; color: var(--straw-dim); font-size: 14px; }
+.member-note { margin: 16px 0 0; padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--edge); color: var(--straw-dim); }
+.member-note.warn { color: var(--peat); background: var(--annual); border-color: var(--annual); }
 
 @media (max-width: 340px) {
   .milestones { grid-template-columns: 1fr; }

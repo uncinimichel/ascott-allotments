@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#15110e">
+  <title>Shopping · Ascott Allotments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div class="mast-top">
+      <span>Ascott Allotments · Starter Bed 11</span>
+      <nav aria-label="Pages">
+        <a href="index.html">Clearing</a>
+        <a href="plot.html">Plot</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="shopping.html" aria-current="page">Shopping</a>
+        <a href="calendar.html" class="soon">Calendar</a>
+      </nav>
+    </div>
+    <h1>Shopping list.</h1>
+    <p class="lede" id="progress"></p>
+  </header>
+
+  <main>
+    <div id="groups"></div>
+
+    <section id="huts" aria-labelledby="huts-h">
+      <h2 id="huts-h">Trading huts</h2>
+      <p class="sub" id="huts-org"></p>
+      <div class="huts" id="hut-list"></div>
+      <div class="member" id="member"></div>
+    </section>
+  </main>
+</div>
+
+<nav class="bar" aria-label="Sections">
+  <ul id="bar-links"></ul>
+</nav>
+
+<script src="js/common.js"></script>
+<script src="js/shopping.js"></script>
+</body>
+</html>

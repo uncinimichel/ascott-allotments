@@ -1,5 +1,5 @@
 // Tracker: an interactive plot plan, beds, plantings and a weekly log.
-// Saved in localStorage; the first visit seeds from data/garden.json.
+// Saved in localStorage; the first visit seeds from the layout in data/site.json.
 const KEY = "ascott.garden";
 const STEP = 0.25; // positions snap to 25 cm along a bed
 const STATUS_LABEL = { planned: "Planned", growing: "Growing", ready: "Ready to harvest" };
@@ -7,23 +7,19 @@ const COMMON_CROPS = ["Garlic", "Autumn onion sets", "Broad beans", "Shallots", 
   "Spinach", "Chard", "Kale", "Cabbage", "Purple sprouting broccoli", "Beetroot", "Carrots", "Parsnips", "Radish",
   "Peas", "Runner beans", "French beans", "Courgettes", "Squash", "Tomatoes", "Potatoes", "Strawberries"];
 
-let garden, plot, areas;
+let garden, site, plot, areas;
 let current = null;       // planting shown in the sheet
 let editingId = null;     // planting being edited; null while adding
 let removeTimer = null;
 
 (async function main() {
-  try { plot = (await loadJSON("data/site.json")).plot; }
+  try { site = await loadJSON("data/site.json"); plot = site.plot; }
   catch (err) {
     $("main").prepend(h("p", { class: "empty" }, "The plot layout didn't load. Open this page through a web server (see README)."));
     throw err;
   }
   areas = plotAreas(plot);
-  garden = store.get(KEY, null);
-  if (!garden) {
-    try { garden = await loadJSON("data/garden.json"); }
-    catch { garden = { beds: [], plantings: [], log: [] }; }
-  }
+  garden = store.get(KEY, null) ?? seedGarden();
   migrate(garden);
   save();
   wire();
@@ -35,7 +31,7 @@ function save() { store.set(KEY, garden); }
 
 /* ---------- Data helpers ---------- */
 const bedById = (id) => garden.beds.find((b) => b.id === id);
-const bedLength = (id) => areas[id]?.h ?? 3;
+const bedLength = (id) => areas[id]?.len ?? 3;
 const plantingsIn = (bed, except) => garden.plantings
   .filter((p) => p.bed === bed && p.id !== except && typeof p.from === "number")
   .sort((a, b) => a.from - b.from);
@@ -57,13 +53,13 @@ function freeGaps(bed, except) {
 }
 
 // A sensible spot for a new planting: about 1 m, inside the free space you tapped.
-function spotFor(bed, tapY, except) {
+function spotFor(bed, tapX, except) {
   const gaps = freeGaps(bed, except);
   if (gaps.length === 0) return [0, Math.min(1, bedLength(bed))];
-  const gap = tapY == null ? (gaps.find(([a, b]) => b - a >= 1) || gaps[0])
-    : (gaps.find(([a, b]) => tapY >= a && tapY <= b) || gaps[0]);
+  const gap = tapX == null ? (gaps.find(([a, b]) => b - a >= 1) || gaps[0])
+    : (gaps.find(([a, b]) => tapX >= a && tapX <= b) || gaps[0]);
   const len = Math.max(STEP, Math.min(1, Math.floor((gap[1] - gap[0]) / STEP) * STEP));
-  const centre = tapY == null ? gap[0] + len / 2 : tapY;
+  const centre = tapX == null ? gap[0] + len / 2 : tapX;
   const from = clamp(snap(centre - len / 2), gap[0], gap[1] - len);
   return [from, from + len];
 }
@@ -81,22 +77,49 @@ function status(p) {
   return inGround ? "growing" : "planned";
 }
 
-// Older saves had no positions or cover flags.
+function seedGarden() {
+  return {
+    version: 3,
+    beds: plot.areas.map((a) => ({ id: a.id, name: a.name, size: a.id === "S" ? "3 m along the slab path" : `${a.h} × ${a.w} m`, note: a.note, cover: false })),
+    plantings: site.layout.map((p) => ({ sown: "", planted: "", ...p })),
+    log: [],
+  };
+}
+
+// Bring older saves up to date: v1 had no positions, v2 was the layout before
+// the plan was settled (Bed B under cardboard, no varieties or covers).
+const OLD_SEED_NOTES = ["Cloves 15 cm apart, tip just below the compost", "10 cm apart, tips showing; net against birds",
+  "Double row, 20 cm apart", "Already growing", "Plant Oct–Nov", "Sow Oct–Nov"];
+
 function migrate(g) {
-  const seedSpots = { p1: [0, 1], p2: [1, 2], p3: [2, 3], p4: [0, 3] };
-  for (const b of g.beds) {
-    if (b.note === "Under black polythene until spring") b.note = "Under cardboard until spring";
-    if (b.cover === undefined) b.cover = b.id === "B";
-  }
   const prev = garden;
   garden = g; // helpers read the global
+  for (const b of g.beds) if (b.cover === undefined) b.cover = false;
   for (const p of g.plantings) {
     if (typeof p.from === "number" && typeof p.to === "number") continue;
-    const seed = seedSpots[p.id];
-    [p.from, p.to] = seed && overlapping(p.bed, seed[0], seed[1], p.id).length === 0 ? seed : spotFor(p.bed, null, p.id);
-    if (p.id === "p4" && p.note === "Already growing") p.inGround = true;
+    const s = site.layout.find((x) => x.id === p.id);
+    [p.from, p.to] = s && s.bed === p.bed && overlapping(p.bed, s.from, s.to, p.id).length === 0 ? [s.from, s.to] : spotFor(p.bed, null, p.id);
+    if (p.id === "p4") p.inGround = true;
   }
-  g.version = 2;
+  if ((g.version ?? 1) < 3) {
+    const seed = seedGarden();
+    for (const sb of seed.beds) {
+      const b = bedById(sb.id);
+      if (!b) { g.beds.push(sb); continue; }
+      Object.assign(b, { name: sb.name, size: sb.size, cover: false });
+      if (!b.note || /cardboard|polythene|Existing plants/i.test(b.note)) b.note = sb.note;
+    }
+    for (const sp of seed.plantings) {
+      const p = g.plantings.find((x) => x.id === sp.id);
+      if (p) {
+        for (const k of ["variety", "cover", "harvest"]) if (!p[k]) p[k] = sp[k];
+        if (!p.note || OLD_SEED_NOTES.includes(p.note)) p.note = sp.note;
+      } else if (overlapping(sp.bed, sp.from, sp.to).length === 0) {
+        g.plantings.push(sp);
+      }
+    }
+  }
+  g.version = 3;
   garden = prev ?? g;
 }
 
@@ -116,36 +139,34 @@ function renderPlan() {
       const ar = a[bed.id];
       if (!ar) continue;
       const mine = plantingsIn(bed.id);
+      const lanes = layoutLanes(mine);
       layer.append(sv("rect", {
         class: bed.cover ? "ground covered" : "ground", x: ar.x, y: ar.y, width: ar.w, height: ar.h,
         tabindex: 0, role: "button", "aria-label": `${bed.name}: add a planting`,
-        onclick: (e) => openAdd(bed.id, svgPoint(svg, e).y - ar.y),
+        onclick: (e) => openAdd(bed.id, svgPoint(svg, e).x - ar.x),
         onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openAdd(bed.id, null); } },
       }));
-      if (bed.cover && mine.length === 0) layer.append(blockLabel(ar.x, ar.y, ar.w, ar.h, "Cardboard", "lbl lbl-soft"));
-      for (const p of mine) layer.append(plantingBlock(p, bed, ar));
+      if (bed.cover && mine.length === 0) layer.append(blockLabel(ar, "Cardboard", "lbl lbl-soft"));
+      for (const p of mine) layer.append(plantingBlock(p, bed, ar, lanes.get(p.id)));
     }
   });
 }
 
-function plantingBlock(p, bed, ar) {
+function plantingBlock(p, bed, ar, { lane, lanes }) {
   const st = status(p);
   const col = cropColour(p.crop);
-  const i = 0.016; // small gap so neighbours read as separate blocks
-  const x = ar.x + i, y = ar.y + p.from + i, w = ar.w - 2 * i, hh = p.to - p.from - 2 * i;
-  const along = w < 0.3 ? hh : w; // room for the label
-  const max = Math.max(3, Math.floor((along - 0.06) / 0.052));
-  let text = st === "ready" ? `${p.crop} · ready` : p.crop;
-  if (text.length > max) text = text.slice(0, max - 1) + "…";
+  const r = plantingRect(ar, p, lane, lanes);
   const g = sv("g", {
     class: `crop ${st}`, tabindex: 0, role: "button", "data-id": p.id, "aria-pressed": String(current === p.id),
-    "aria-label": `${p.crop}, ${STATUS_LABEL[st].toLowerCase()}, ${bed.name} ${span(p)}`,
+    "aria-label": `${p.crop}, ${STATUS_LABEL[st].toLowerCase()}, ${bed.name} ${span(p)} from the west end`,
     onclick: () => openView(p.id),
     onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openView(p.id); } },
-  }, sv("rect", { x, y, width: w, height: hh, rx: 0.02, fill: col, stroke: col }));
-  // Narrow strips get a wider invisible target so a finger can hit them.
-  if (w < 0.3) g.prepend(sv("rect", { class: "hit", x: x - 0.1, y, width: w + 0.2, height: hh }));
-  if (hh >= 0.12) g.append(blockLabel(x, y, w, hh, text));
+  }, sv("rect", { x: r.x, y: r.y, width: r.w, height: r.h, rx: 0.02, fill: col, stroke: col }));
+  // Thin strips get a taller invisible target so a finger can hit them.
+  if (r.h < 0.3) g.prepend(sv("rect", { class: "hit", x: r.x, y: r.y - 0.1, width: r.w, height: r.h + 0.2 }));
+  const cover = coverOverlay(r, p.cover);
+  if (cover) g.append(cover);
+  if (r.h >= 0.12) g.append(blockLabel(r, st === "ready" ? `${p.crop} · ready` : p.crop));
   return g;
 }
 
@@ -160,7 +181,7 @@ function renderBeds() {
       h("label", { class: "cover-toggle" },
         h("input", { type: "checkbox", checked: !!bed.cover,
           onchange: (e) => { bed.cover = e.target.checked; save(); renderPlan(); } }),
-        "Covered with cardboard (not planted yet)"),
+        "Bare cardboard (not planted yet)"),
       ps.length === 0
         ? h("div", { class: "planting empty-bed" }, "Nothing planted.",
             h("button", { class: "btn ghost small", type: "button", onclick: () => openAdd(bed.id, null) }, "Add to this bed"))
@@ -204,25 +225,26 @@ function openView(id) {
   const bed = bedById(p.bed);
   const st = status(p);
   $("#sheet-title").textContent = p.crop;
-  $("#sheet-sub").textContent = [p.variety, `${bed?.name ?? p.bed}, ${span(p)}`].filter(Boolean).join(" · ");
+  $("#sheet-sub").textContent = [p.variety, `${bed?.name ?? p.bed}, ${span(p)} from the west end`].filter(Boolean).join(" · ");
   drawStrip($("#view-strip"), p.bed, p.from, p.to, p.id, p.crop);
   const fact = (k, v) => h("div", {}, h("dt", {}, k), h("dd", {}, v || "–"));
   $("#view-facts").replaceChildren(
     fact("Status", h("span", { class: `pill ${st}` }, STATUS_LABEL[st])),
     fact("Sown", fmtDate(p.sown)),
     fact("Planted out", fmtDate(p.planted)),
-    fact("Harvest from", fmtDate(p.harvest, { month: "long", year: "numeric" })));
+    fact("Harvest from", fmtDate(p.harvest, { month: "long", year: "numeric" })),
+    fact("Cover", COVER_LABEL[p.cover]));
   $("#view-note").textContent = p.note || "";
   $("#view-note").hidden = !p.note;
   showSheet("view");
   renderPlan();
 }
 
-function openAdd(bed, tapY) {
+function openAdd(bed, tapX) {
   editingId = null;
   current = null;
-  const [from, to] = spotFor(bed, tapY);
-  fillForm({ crop: "", variety: "", bed, from, to, sown: "", planted: "", harvest: "", note: "" });
+  const [from, to] = spotFor(bed, tapX);
+  fillForm({ crop: "", variety: "", bed, from, to, sown: "", planted: "", harvest: "", note: "", cover: "" });
   $("#sheet-title").textContent = "New planting";
   $("#sheet-sub").textContent = `${bedById(bed)?.name ?? bed}, ${metres(from)}–${metres(to)} m`;
   $("#form-save").textContent = "Add planting";
@@ -242,7 +264,7 @@ function openEdit(id) {
 function fillForm(p) {
   const f = $("#sheet-form");
   $("#f-bed").replaceChildren(...garden.beds.map((b) => h("option", { value: b.id }, b.name)));
-  for (const k of ["crop", "variety", "bed", "sown", "planted", "harvest", "note"]) f[k].value = p[k] || "";
+  for (const k of ["crop", "variety", "bed", "sown", "planted", "harvest", "note", "cover"]) f[k].value = p[k] || "";
   setPositionOptions(p.bed, p.from, p.to);
   $("#crop-error").hidden = true;
   updateFormStrip();
@@ -277,14 +299,14 @@ function updateFormStrip() {
   if (!editingId) $("#sheet-sub").textContent = `${bedById(bed)?.name ?? bed}, ${metres(from)}–${metres(to)} m`;
 }
 
-// The bed as a bar, 0 m at the top end of the drawing; this planting highlighted.
+// The bed as a bar, west end on the left like the drawing; this planting highlighted.
 function drawStrip(el, bed, from, to, except, label) {
   const L = bedLength(bed);
   const pct = (v) => `${(v / L) * 100}%`;
   const others = plantingsIn(bed, except).map((p) =>
     h("span", { class: "seg other", style: `left:${pct(p.from)};width:${pct(p.to - p.from)};--c:${cropColour(p.crop)}`, title: p.crop }));
   const ticks = [];
-  for (let v = 0; v <= L + 1e-9; v += 1) ticks.push(h("span", { class: "tick", style: `left:${pct(v)}` }, v === 0 ? "top" : v === L ? `${v} m` : `${v}`));
+  for (let v = 0; v <= L + 1e-9; v += 1) ticks.push(h("span", { class: "tick", style: `left:${pct(v)}` }, v === 0 ? "west" : v === L ? `${v} m east` : `${v}`));
   el.replaceChildren(
     h("div", { class: "strip-bar" }, others,
       h("span", { class: "seg this", style: `left:${pct(from)};width:${pct(to - from)};--c:${cropColour(label)}` })),
@@ -299,7 +321,7 @@ function onSave(e) {
   const [from, to] = formSpot();
   const values = {
     crop, variety: f.variety.value.trim(), bed: f.bed.value, from, to,
-    sown: f.sown.value, planted: f.planted.value, harvest: f.harvest.value, note: f.note.value.trim(),
+    sown: f.sown.value, planted: f.planted.value, harvest: f.harvest.value, note: f.note.value.trim(), cover: f.cover.value,
   };
   let id = editingId;
   if (id) Object.assign(garden.plantings.find((p) => p.id === id), values);

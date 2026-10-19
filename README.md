@@ -6,17 +6,18 @@ A phone-first site for my no-dig plot at Ascott Allotments, Ealing (3 × 3 m, tw
 
 | Page | What it does |
 | --- | --- |
-| `index.html` | Clearing the weeds: weed guide, plot plan drawn to scale, tools checklist, clearing steps, site rules with cultivation deadlines, before/after photos |
-| `tracker.html` | Beds, plantings (sown / planted / harvest dates) and a weekly log, with backup export and import |
+| `index.html` | Clearing: weed guide (remove or keep), bed prep steps, site rules with cultivation deadlines, before/after photos |
+| `plot.html` | The autumn 2026 layout drawn to scale (north up), where the plot is on site, next summer's crops, pots |
+| `tracker.html` | Interactive plan: tap a planting to update it, tap empty ground to add one; beds, weekly log, backup |
+| `shopping.html` | Orders, things to buy, free materials and kit as checklists; trading hut hours (open now or next opening) and membership |
 | `calendar.html` | Placeholder for the London no-dig calendar with weekly reminders |
 
 Shared data lives in `data/`:
 
-- `site.json`: weeds, plot layout, tools, steps and rules (used by the index, and later by the calendar)
-- `garden.json`: seed data for the tracker on first visit
+- `site.json`: the source of truth: site and plot details, layout, next summer's plan, shopping lists, trading huts, weeds, steps and rules. The tracker seeds from its layout on first visit.
 - `credits.json`: photo credits for `img/plants/` (all from Wikimedia Commons, freely licensed)
 
-Tracker entries, ticked tools and progress photos are saved in the browser on the device you use. Export a tracker backup now and then.
+Tracker entries, shopping ticks and progress photos are saved in the browser on the device you use. Export a tracker backup now and then.
 
 ## Run it locally
 
@@ -30,7 +31,7 @@ python3 -m http.server 8000
 ## Still to do
 
 - Seed the tracker from `Ascott_NoDig_Planner.xlsx` (calendar, crop plan, fruit data)
-- Check the weed guide against photos of the actual plot
+- Check the weed guide against photos of the actual plot and the welcome email pictures
 - Calendar page with weekly reminders
 - Plant/weed ID from a photo
 - Offline support at the plot

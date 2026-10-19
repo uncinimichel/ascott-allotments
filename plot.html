@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#15110e">
+  <title>The plot · Ascott Allotments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <div class="mast-top">
+      <span>Ascott Allotments · Starter Bed 11</span>
+      <nav aria-label="Pages">
+        <a href="index.html">Clearing</a>
+        <a href="plot.html" aria-current="page">Plot</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="shopping.html">Shopping</a>
+        <a href="calendar.html" class="soon">Calendar</a>
+      </nav>
+    </div>
+    <h1>Starter Bed 11.</h1>
+    <p class="lede" id="where-lede"></p>
+  </header>
+
+  <main>
+    <section id="layout" aria-labelledby="layout-h">
+      <h2 id="layout-h">Autumn 2026</h2>
+      <p class="sub">Drawn to scale, north at the top. Tap a block to see what goes there. To record what's actually planted, use the <a href="tracker.html">tracker</a>.</p>
+      <div class="plan-wrap"><svg id="plan-svg" class="plan" role="group" aria-labelledby="layout-h"></svg></div>
+      <div class="plan-legend" aria-label="Key">
+        <span><i class="lg mesh"></i>Insect mesh on hoops</span>
+        <span><i class="lg fleece"></i>Fleece</span>
+        <span><i class="lg pot"></i>Pot</span>
+      </div>
+      <div class="plan-key" id="plan-key"></div>
+      <p class="plan-note" id="plan-note"></p>
+    </section>
+
+    <section id="where" aria-labelledby="where-h">
+      <h2 id="where-h">On site</h2>
+      <dl class="facts-list" id="site-facts"></dl>
+    </section>
+
+    <section id="next" aria-labelledby="next-h">
+      <h2 id="next-h">Next summer</h2>
+      <p class="sub">What follows each crop as it comes out.</p>
+      <div class="table-wrap"><table class="plain" id="succession"></table></div>
+    </section>
+
+    <section id="pots" aria-labelledby="pots-h">
+      <h2 id="pots-h">Pots</h2>
+      <div class="table-wrap"><table class="plain" id="pot-table"></table></div>
+    </section>
+  </main>
+</div>
+
+<nav class="bar" aria-label="Sections">
+  <ul>
+    <li><a href="#layout">Layout</a></li>
+    <li><a href="#where">On site</a></li>
+    <li><a href="#next">Next summer</a></li>
+    <li><a href="#pots">Pots</a></li>
+  </ul>
+</nav>
+
+<script src="js/common.js"></script>
+<script src="js/plan.js"></script>
+<script src="js/plot.js"></script>
+</body>
+</html>
