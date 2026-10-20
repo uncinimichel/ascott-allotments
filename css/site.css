@@ -516,3 +516,49 @@ table.plain td.mono { white-space: nowrap; color: var(--straw-dim); font-size: 1
 .crop .thumb.none { display: grid; place-items: center; font: 700 24px var(--display); color: var(--straw-dim); border: 1px dashed var(--edge); background: none; }
 #weeds { padding-top: 56px; }
 .weed-part { font: 600 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--straw-dim); margin: 22px 0 10px; }
+
+/* ---------- Varieties ---------- */
+.tags-line { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 5px; }
+.tags-line .place { margin-top: 0; }
+.place[data-place="idea"] { color: var(--annual); border-color: color-mix(in srgb, var(--annual) 45%, transparent); border-style: dashed; }
+.vcount { font: 500 11px/1 var(--mono); color: var(--straw-dim); }
+.varieties { grid-column: 1 / -1; margin-top: 8px; padding-top: 18px; border-top: 1px dashed var(--edge); min-width: 0; }
+.varieties-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.varieties-head h3 { font: 800 24px/1 var(--display); font-stretch: 85%; }
+.variety-row {
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(78%, 280px); gap: 12px;
+  overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  margin-inline: calc(-1 * var(--gutter)); padding: 4px var(--gutter) 14px; scroll-padding-inline: var(--gutter);
+  scrollbar-width: thin; scrollbar-color: var(--edge) transparent;
+}
+.variety-row.single { grid-auto-columns: minmax(0, 420px); }
+.variety {
+  scroll-snap-align: start; position: relative;
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 16px 16px 14px; border-radius: 14px;
+  background: linear-gradient(160deg, var(--loam-2), var(--loam) 70%);
+  border: 1px solid var(--edge);
+}
+.variety.chosen { border-color: var(--keep); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--keep) 40%, transparent); padding-top: 46px; }
+.ribbon {
+  position: absolute; top: 0; left: 16px; transform: translateY(-50%);
+  font: 600 11px/1 var(--mono); color: var(--peat); background: var(--keep); padding: 4px 8px; border-radius: 99px;
+}
+.variety.chosen .ribbon { top: 14px; transform: none; }
+.variety-name { display: flex; justify-content: space-between; align-items: start; gap: 8px; }
+.variety-name b { font: 700 20px/1.1 var(--display); font-stretch: 85%; }
+.agm {
+  flex: none; font: 600 10px/1 var(--mono); letter-spacing: .04em; color: var(--keep);
+  border: 1px solid color-mix(in srgb, var(--keep) 55%, transparent); border-radius: 99px; padding: 4px 7px; white-space: nowrap;
+}
+.variety p { margin: 0; font-size: 15px; line-height: 1.45; color: var(--straw); flex: 1; }
+.variety-foot { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.best { font: 600 12px/1 var(--mono); color: var(--peat); background: var(--annual); padding: 5px 8px; border-radius: 99px; }
+.vnote { font: 12px/1.2 var(--mono); color: var(--straw-dim); }
+.seller { font: italic 12px/1 var(--body); color: var(--check); border-bottom: 1px dotted var(--check); cursor: help; }
+.sources { font-size: 13px; color: var(--straw-dim); margin: 2px 0 0; }
+.sources a { color: var(--straw-dim); }
+@media (min-width: 640px) {
+  .variety-row { grid-auto-flow: row; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); grid-auto-columns: auto; overflow: visible; margin-inline: 0; padding-inline: 0; }
+  .varieties-head .count { visibility: hidden; }
+}

@@ -16,7 +16,7 @@
   renderNow(site.catalog.crops, now);
   renderList(site, groups, credits, now);
   renderWeeds(site, weedCredits);
-  $("#cat-note").textContent = site.catalog.note;
+  $("#cat-note").textContent = `${site.catalog.note} ${site.catalog.varietiesNote || ""}`;
   $("#cat-credits").textContent = "Photos from Wikimedia Commons, freely licensed. The photographer and licence are under each photo.";
   openFromHash();
   addEventListener("hashchange", openFromHash);
@@ -76,8 +76,9 @@ const KINDS = [
   { id: "fruit", kind: "fruit", title: "Fruit", sub: "Strawberries in the ground and citrus in pots." },
   { id: "flowers", kind: "flower", title: "Flowers", sub: "Grown to bring in hoverflies, whose larvae eat aphids." },
 ];
-const PLACE = { "plot-crops": "In the plot", flowers: "In pots", "next-crops": "Next summer" };
-const PLACE_ORDER = ["plot-crops", "flowers", "next-crops"];
+const PLACE = { "plot-crops": "In the plot", idea: "Could add this winter", flowers: "In pots", "next-crops": "Next summer" };
+const PLACE_ORDER = ["plot-crops", "idea", "flowers", "next-crops"];
+const IDEA_WHERE = "Not planted yet. It could join the winter salads under the fleece in Bed B as module plugs.";
 
 function renderList(site, { where, group }, credits, now) {
   const list = $("#crop-list");
@@ -86,14 +87,15 @@ function renderList(site, { where, group }, credits, now) {
   $("#ruler").replaceWith(monthRuler(now));
 
   // Pots that aren't flowers (tomatoes, citrus) are tagged "In pots" rather than in the flowers group.
-  const rank = (c) => PLACE_ORDER.indexOf(group[c.id]);
+  const placeOf = (c) => group[c.id] || (c.idea ? "idea" : null);
+  const rank = (c) => PLACE_ORDER.indexOf(placeOf(c));
   for (const k of KINDS) {
     const crops = site.catalog.crops.filter((c) => c.kind === k.kind).sort((a, b) => rank(a) - rank(b));
     if (!crops.length) continue;
     list.append(h("section", { id: k.id, "aria-labelledby": `${k.id}-h` },
       h("div", { class: "group-title" }, h("h2", { id: `${k.id}-h` }, k.title), h("span", { class: "count" }, String(crops.length))),
       h("p", { class: "sub" }, k.sub),
-      h("div", { class: "crops" }, crops.map((c) => cropEntry(c, where[c.id] || [], credits[c.id], now, group[c.id])))));
+      h("div", { class: "crops" }, crops.map((c) => cropEntry(c, where[c.id] || (c.idea ? [IDEA_WHERE] : []), credits[c.id], now, placeOf(c))))));
   }
 }
 
@@ -113,7 +115,9 @@ function cropEntry(c, where, credit, now, place) {
       h("span", { class: "crop-name" },
         h("b", {}, c.name),
         h("span", { class: "crop-sub" }, c.variety || h("i", {}, c.latin)),
-        PLACE[place] && h("span", { class: "place", "data-place": place }, PLACE[place])),
+        h("span", { class: "tags-line" },
+          PLACE[place] && h("span", { class: "place", "data-place": place }, PLACE[place]),
+          c.varieties?.length > 1 && h("span", { class: "vcount" }, `${c.varieties.length} varieties`))),
       st && h("span", { class: st.later ? "status later" : "status", "data-act": st.act }, st.text),
       monthBar(c, { now })),
     h("div", { class: "crop-body" },
@@ -128,8 +132,33 @@ function cropEntry(c, where, credit, now, place) {
         fact("Tip", c.tip),
         fact(onPlot ? "On your plot" : "Where", where.join(". ")),
         c.variety && fact("Latin name", h("i", {}, c.latin))),
-      onPlot && h("a", { class: "btn ghost small", href: `plot.html?crop=${c.id}#layout` }, "Show it on the plot")));
+      onPlot && h("a", { class: "btn ghost small", href: `plot.html?crop=${c.id}#layout` }, "Show it on the plot"),
+      varietyList(c)));
   return d;
+}
+
+/* ---------- Varieties: what else to grow, and why ---------- */
+function varietyList(c) {
+  const vs = c.varieties || [];
+  if (!vs.length) return null;
+  const single = vs.length === 1;
+  return h("div", { class: "varieties" },
+    h("div", { class: "varieties-head" },
+      h("h3", {}, single ? "Variety" : "Varieties"),
+      !single && h("span", { class: "count" }, `${vs.length} · swipe`)),
+    h("div", { class: single ? "variety-row single" : "variety-row", role: "list" }, vs.map((v) =>
+      h("article", { class: v.chosen ? "variety chosen" : "variety", role: "listitem" },
+        v.chosen && h("span", { class: "ribbon" }, "You're growing this"),
+        h("div", { class: "variety-name" },
+          h("b", {}, v.name),
+          v.agm && h("span", { class: "agm", title: "RHS Award of Garden Merit" }, "RHS AGM")),
+        h("p", {}, v.why),
+        h("div", { class: "variety-foot" },
+          h("span", { class: "best" }, v.best),
+          v.note && h("span", { class: "vnote" }, v.note),
+          v.seller && h("span", { class: "seller", title: "Only the seed seller says this; not independently confirmed" }, "seller's claim"))))),
+    c.sources?.length && h("p", { class: "sources" }, "Sources: ",
+      c.sources.flatMap((s, i) => [i ? " · " : "", h("a", { href: s.url, target: "_blank", rel: "noopener" }, s.label)])));
 }
 
 /* ---------- Weeds: what comes out, and what looks like a weed but stays ---------- */

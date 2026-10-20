@@ -118,7 +118,8 @@ function openCropSheet(p, byId) {
         h("h4", {}, c.name, c.variety && h("span", {}, ` · ${c.variety}`)),
         h("p", {}, c.about)),
       monthBar(c, { labelled: true }),
-      h("a", { class: "btn ghost small", href: `catalog.html#${c.id}` }, `${c.name} in the catalogue`))));
+      h("a", { class: "btn ghost small", href: `catalog.html#${c.id}` },
+        c.varieties?.length > 1 ? `${c.name}: ${c.varieties.length} varieties compared` : `${c.name} in the catalogue`))));
   if (!sheet.open) sheet.showModal();
   sheet.scrollTop = 0;
 }

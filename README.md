@@ -18,6 +18,7 @@ Shared data lives in `data/`:
 - `site.json`: the source of truth: site and plot details, layout, next summer's plan, shopping lists, trading huts, weeds, steps and rules. The tracker seeds from its layout on first visit.
 - `credits.json`: photo credits for `img/plants/` (all from Wikimedia Commons, freely licensed)
 - `crop-credits.json`: photo credits for `img/crops/`, same source
+- Each catalogue crop has `varieties` (name, why, best-for, RHS AGM, seller-only claims flagged) and `sources`; the full research with every source is in `docs/varieties-research.md`
 - The catalogue lives in `site.json` under `catalog.crops`; layout, succession and pot entries point at it with `catalog` ids
 
 Tracker entries, shopping ticks and progress photos are saved in the browser on the device you use. Export a tracker backup now and then.

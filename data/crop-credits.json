@@ -118,5 +118,41 @@
     "source": "https://commons.wikimedia.org/wiki/File:Citrus_x_Limon_JPG1a.jpg",
     "author": "Jean-Pol GRANDMONT",
     "license": "CC BY 3.0"
+  },
+  "winter-lettuce": {
+    "file": "2018-06-18 (109) Lactuca sativa (garden lettuce) at Bichlhäusl in Frankenfels, Austria.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:2018-06-18_(109)_Lactuca_sativa_(garden_lettuce)_at_Bichlh%C3%A4usl_in_Frankenfels,_Austria.jpg",
+    "author": "GT1976",
+    "license": "CC BY-SA 4.0"
+  },
+  "rocket": {
+    "file": "Eruca sativa 0006842.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Eruca_sativa_0006842.jpg",
+    "author": "Juan Carlos Fonseca Mata",
+    "license": "CC BY-SA 4.0"
+  },
+  "claytonia": {
+    "file": "Claytonia perfoliata 119910695.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Claytonia_perfoliata_119910695.jpg",
+    "author": "Randal",
+    "license": "CC0"
+  },
+  "mustards": {
+    "file": "RoterSenfRedGiantBlatt.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:RoterSenfRedGiantBlatt.jpg",
+    "author": "Goldlocki",
+    "license": "CC BY-SA 3.0"
+  },
+  "winter-spinach": {
+    "file": "Spinazie vrouwelijke plant (Spinacia oleracea female plant).jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Spinazie_vrouwelijke_plant_(Spinacia_oleracea_female_plant).jpg",
+    "author": "Rasbak",
+    "license": "CC BY-SA 3.0"
+  },
+  "chicory": {
+    "file": "RadicchioChioggiaBestand.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:RadicchioChioggiaBestand.jpg",
+    "author": "Goldlocki",
+    "license": "CC BY-SA 3.0"
   }
 }

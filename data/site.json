@@ -686,7 +686,63 @@
               7
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Solent Wight",
+            "why": "The one you're growing: a softneck that stores well and rarely bolts.",
+            "best": "Storage",
+            "agm": true,
+            "note": "Softneck · H4",
+            "chosen": true
+          },
+          {
+            "name": "Cristo",
+            "why": "Softneck with a strong flavour and light aroma.",
+            "best": "Flavour",
+            "agm": true,
+            "note": "Softneck · H4"
+          },
+          {
+            "name": "Germidour",
+            "why": "Reliable softneck with large bulbs; can go in in autumn or spring.",
+            "best": "Big bulbs",
+            "agm": true,
+            "note": "Softneck · H4"
+          },
+          {
+            "name": "Mersley Wight",
+            "why": "The newest garlic AGM (2023), also fine planted in spring.",
+            "best": "Spring fallback",
+            "agm": true,
+            "note": "Softneck · H4"
+          },
+          {
+            "name": "Carcassonne Wight",
+            "why": "Pink-cloved hardneck, ready about a month before Solent Wight. Keeps only 4–6 months.",
+            "best": "Early harvest",
+            "agm": false,
+            "note": "Hardneck",
+            "seller": true
+          },
+          {
+            "name": "Arno",
+            "why": "Softneck the RHS recommends because it keeps well.",
+            "best": "Storage",
+            "agm": false,
+            "note": "Softneck"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS garlic",
+            "url": "https://www.rhs.org.uk/vegetables/garlic/grow-your-own"
+          },
+          {
+            "label": "The Garlic Farm",
+            "url": "https://www.thegarlicfarm.co.uk/pages/how-to-grow-garlic"
+          }
+        ]
       },
       {
         "id": "onion",
@@ -716,7 +772,48 @@
               7
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Senshyu",
+            "why": "The one you're growing: a June gap-filler. Eat it within about a month.",
+            "best": "Early crop",
+            "agm": false,
+            "note": "Keeps ~1 month",
+            "chosen": true
+          },
+          {
+            "name": "Radar",
+            "why": "Resists bolting well. A July crop that keeps until about September.",
+            "best": "Bolt resistance",
+            "agm": false,
+            "note": "Bolt resistant"
+          },
+          {
+            "name": "Shakespeare",
+            "why": "British-bred brown onion; strong bolt resistance and stores well once cured.",
+            "best": "Bolt resistance",
+            "agm": false,
+            "seller": true
+          },
+          {
+            "name": "Electric",
+            "why": "Glossy red onion with red-streaked flesh; ready in June.",
+            "best": "Red onions",
+            "agm": false,
+            "note": "Keeps ~1 month"
+          }
+        ],
+        "sources": [
+          {
+            "label": "Garden Focused",
+            "url": "https://gardenfocused.co.uk/vegetable/onions/varieties.php"
+          },
+          {
+            "label": "RHS onions",
+            "url": "https://www.rhs.org.uk/vegetables/onions/grow-your-own"
+          }
+        ]
       },
       {
         "id": "broad-beans",
@@ -750,7 +847,61 @@
               7
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Aquadulce Claudia",
+            "why": "The one you're growing: the classic hardy autumn bean.",
+            "best": "Autumn sowing",
+            "agm": null,
+            "chosen": true
+          },
+          {
+            "name": "Aguadulce",
+            "why": "Same top hardiness rating as Claudia; sow it in autumn or spring.",
+            "best": "Autumn sowing",
+            "agm": true,
+            "note": "H5"
+          },
+          {
+            "name": "De Monica",
+            "why": "Charles Dowding's pick for November sowing. A smaller plant, about 1.2 m.",
+            "best": "Compact",
+            "agm": true,
+            "note": "H4"
+          },
+          {
+            "name": "Witkiem Manita",
+            "why": "Fast-growing and early; best as a spring backup.",
+            "best": "Early crop",
+            "agm": true,
+            "note": "H4"
+          },
+          {
+            "name": "The Sutton",
+            "why": "Dwarf bean, ideal for containers and windy sites.",
+            "best": "Small beds",
+            "agm": true,
+            "note": "H3 · less hardy"
+          },
+          {
+            "name": "Wizard",
+            "why": "Small-seeded field bean. Dowding: \"great over winter… tasty crop in May\".",
+            "best": "Hardiness",
+            "agm": false,
+            "note": "Very hardy"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS broad beans",
+            "url": "https://www.rhs.org.uk/vegetables/broad-beans/grow-your-own"
+          },
+          {
+            "label": "Charles Dowding",
+            "url": "https://www.charlesdowding.co.uk/education/seeds-varieties"
+          }
+        ]
       },
       {
         "id": "peas",
@@ -784,7 +935,55 @@
               7
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Douce Provence",
+            "why": "The one you're growing: a sweet, short pea for autumn sowing.",
+            "best": "Autumn sowing",
+            "agm": false,
+            "chosen": true
+          },
+          {
+            "name": "Meteor",
+            "why": "Probably the hardiest pea of all. Dwarf (~45 cm) but less sweet.",
+            "best": "Hardiness",
+            "agm": false,
+            "note": "Very hardy · 45 cm"
+          },
+          {
+            "name": "Feltham First",
+            "why": "Round-seeded first early, ~45 cm, needs little support.",
+            "best": "Small beds",
+            "agm": false,
+            "note": "Cold tolerant",
+            "seller": true
+          },
+          {
+            "name": "Hurst Green Shaft",
+            "why": "Tasty podding pea, about 1 m. Sow it in spring, not autumn.",
+            "best": "Spring backup",
+            "agm": true,
+            "note": "H2 · spring"
+          },
+          {
+            "name": "Kelvedon Wonder",
+            "why": "Reliable dwarf AGM pea for spring sowing.",
+            "best": "Spring backup",
+            "agm": true,
+            "note": "H2 · spring"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS Meteor",
+            "url": "https://www.rhs.org.uk/plants/347230/pisum-sativum-meteor/details"
+          },
+          {
+            "label": "Garden Focused",
+            "url": "https://gardenfocused.co.uk/vegetable/peas/variety-meteor.php"
+          }
+        ]
       },
       {
         "id": "lambs-lettuce",
@@ -815,7 +1014,48 @@
               3
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Valentin",
+            "why": "The best lamb's lettuce Charles Dowding has grown.",
+            "best": "Hardiness",
+            "agm": false,
+            "note": "Very hardy"
+          },
+          {
+            "name": "Vit",
+            "why": "Vigorous, overwinters well, said to resist mildew. Bolts fast in summer.",
+            "best": "Mildew",
+            "agm": false,
+            "seller": true
+          },
+          {
+            "name": "Verte de Cambrai",
+            "why": "Classic compact French type with very tender leaves.",
+            "best": "Flavour",
+            "agm": false,
+            "note": "Very hardy",
+            "seller": true
+          },
+          {
+            "name": "Trophy",
+            "why": "Dowding says it \"looks promising\".",
+            "best": "Trial pick",
+            "agm": false,
+            "note": "Hardy"
+          }
+        ],
+        "sources": [
+          {
+            "label": "Charles Dowding",
+            "url": "https://charlesdowding.co.uk/seeds-and-varieties/"
+          },
+          {
+            "label": "Kings Seeds",
+            "url": "https://www.kingsseeds.com/11702-corn-salad-vit"
+          }
+        ]
       },
       {
         "id": "land-cress",
@@ -844,7 +1084,22 @@
               3
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Land cress (the species)",
+            "why": "No named varieties are sold in the UK. Dowding: an \"excellent hardy plant\" that crops all winter.",
+            "best": "Winter picking",
+            "agm": false,
+            "note": "Very hardy · pigeons like it"
+          }
+        ],
+        "sources": [
+          {
+            "label": "Charles Dowding",
+            "url": "https://charlesdowding.co.uk/seeds-and-varieties/"
+          }
+        ]
       },
       {
         "id": "mizuna",
@@ -873,7 +1128,35 @@
               12
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Kyoto",
+            "why": "RHS: \"well-flavoured and very hardy\", sow all year. Leafier and slower to bolt.",
+            "best": "Hardiness",
+            "agm": false,
+            "note": "Very hardy"
+          },
+          {
+            "name": "Red Knight F1",
+            "why": "Red-topped leaves that colour best in winter; slower to bolt.",
+            "best": "Colour",
+            "agm": false,
+            "seller": true
+          },
+          {
+            "name": "Plain mizuna",
+            "why": "Cheap and vigorous; Dowding buys his oriental leaves from CN Seeds.",
+            "best": "Value",
+            "agm": false
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS mizuna",
+            "url": "https://www.rhs.org.uk/vegetables/mizuna-mibuna/grow-your-own"
+          }
+        ]
       },
       {
         "id": "chard",
@@ -919,7 +1202,458 @@
               5
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Perpetual Spinach",
+            "why": "Leaf beet. Long-cropping, resists bolting, and the hardiest of the chards.",
+            "best": "Winter hardiness",
+            "agm": true,
+            "note": "H4"
+          },
+          {
+            "name": "Fordhook Giant",
+            "why": "White stems, the hardiest kind. A July sowing crops until March.",
+            "best": "Yield",
+            "agm": true,
+            "note": "H3"
+          },
+          {
+            "name": "Bright Lights",
+            "why": "Mixed red, yellow and orange stems; good as baby leaves too.",
+            "best": "Colour",
+            "agm": true,
+            "note": "H3"
+          },
+          {
+            "name": "Rhubarb Chard",
+            "why": "Bright red stalks and puckered leaves.",
+            "best": "Colour",
+            "agm": true
+          },
+          {
+            "name": "Charlotte",
+            "why": "Dark green leaves with red veins and stalks.",
+            "best": "Colour",
+            "agm": true
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS chard",
+            "url": "https://www.rhs.org.uk/vegetables/chard/grow-your-own"
+          }
+        ]
+      },
+      {
+        "id": "winter-lettuce",
+        "name": "Winter lettuce",
+        "variety": "",
+        "latin": "Lactuca sativa",
+        "kind": "veg",
+        "idea": "winter",
+        "aliases": [
+          "lettuce",
+          "winter lettuce"
+        ],
+        "about": "Lettuces bred to sit through winter and heart up or regrow early in spring.",
+        "grow": "Plant module plugs into the fleeced bed. Pick outer leaves rather than cutting whole heads.",
+        "spacing": "25 cm apart",
+        "tip": "Slugs are the main winter threat on wet clay; Grenoble Red is the most slug-resistant.",
+        "calendar": {
+          "sowOut": [
+            [
+              8,
+              9
+            ]
+          ],
+          "plant": [
+            [
+              9,
+              10
+            ]
+          ],
+          "harvest": [
+            [
+              11,
+              4
+            ]
+          ]
+        },
+        "varieties": [
+          {
+            "name": "Grenoble Red",
+            "why": "Dowding's winter favourite \"for resistance to frost, slugs and mildew\".",
+            "best": "Slugs, mildew",
+            "agm": false,
+            "note": "Frost-resistant"
+          },
+          {
+            "name": "Winter Density",
+            "why": "Dark green semi-cos; the only winter lettuce with an AGM.",
+            "best": "Spring hearts",
+            "agm": true,
+            "note": "H2 · needs fleece"
+          },
+          {
+            "name": "Arctic King",
+            "why": "Butterhead \"bred for autumn sowing with exceptional cold resistance\" (RHS).",
+            "best": "Spring heads",
+            "agm": false,
+            "note": "Very cold-resistant"
+          },
+          {
+            "name": "Valdor",
+            "why": "Very hardy and slow to bolt.",
+            "best": "Hardiest heading",
+            "agm": false,
+            "note": "H4",
+            "seller": true
+          }
+        ],
+        "sources": [
+          {
+            "label": "Charles Dowding",
+            "url": "https://charlesdowding.co.uk/blogs/homeacres/seeds-and-varieties-my-tips"
+          },
+          {
+            "label": "RHS Arctic King",
+            "url": "https://www.rhs.org.uk/plants/296424/lactuca-sativa-arctic-king/details"
+          }
+        ]
+      },
+      {
+        "id": "rocket",
+        "name": "Rocket",
+        "variety": "",
+        "latin": "Eruca sativa, Diplotaxis tenuifolia",
+        "kind": "veg",
+        "idea": "winter",
+        "aliases": [
+          "rocket",
+          "arugula",
+          "rucola"
+        ],
+        "about": "Peppery leaves. Salad rocket sown in September overwinters; wild rocket is a tougher perennial.",
+        "grow": "Sow under the fleece now, or plant plugs. Cut leaves at 8–10 cm.",
+        "spacing": "Rows 15 cm apart",
+        "tip": "Flea beetles hole it in summer; under fleece in winter it stays clean.",
+        "calendar": {
+          "sowOut": [
+            [
+              8,
+              10
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "harvest": [
+            [
+              10,
+              5
+            ]
+          ]
+        },
+        "varieties": [
+          {
+            "name": "Salad rocket (Bingenheim)",
+            "why": "Dowding: \"especially the selection from Bingenheim\". Overwinters from a September sowing.",
+            "best": "Flavour",
+            "agm": false,
+            "note": "Overwinters"
+          },
+          {
+            "name": "Apollo",
+            "why": "Larger, less lobed leaves (Dowding).",
+            "best": "Leaf size",
+            "agm": false
+          },
+          {
+            "name": "Wild rocket 'Dragon's Tongue'",
+            "why": "Red-veined perennial, resilient and slow to bolt.",
+            "best": "Hardiest rocket",
+            "agm": false,
+            "note": "About −10 °C",
+            "seller": true
+          }
+        ],
+        "sources": [
+          {
+            "label": "Charles Dowding",
+            "url": "https://charlesdowding.co.uk/blogs/homeacres/seeds-and-varieties-my-tips"
+          },
+          {
+            "label": "Backyard Larder",
+            "url": "https://backyardlarder.co.uk/plants/wild-rocket/"
+          }
+        ]
+      },
+      {
+        "id": "claytonia",
+        "name": "Claytonia",
+        "variety": "",
+        "latin": "Claytonia perfoliata",
+        "kind": "veg",
+        "idea": "winter",
+        "aliases": [
+          "claytonia",
+          "winter purslane",
+          "miner's lettuce"
+        ],
+        "about": "Winter purslane, or miner's lettuce: mild, succulent leaves that Dowding picks outdoors in December.",
+        "grow": "Sow under the fleece or plant plugs. Cut at 5 cm and it regrows.",
+        "spacing": "10 cm apart",
+        "tip": "It seeds itself in spring, so you rarely need to sow it twice.",
+        "calendar": {
+          "sowOut": [
+            [
+              8,
+              10
+            ]
+          ],
+          "harvest": [
+            [
+              11,
+              4
+            ]
+          ]
+        },
+        "varieties": [
+          {
+            "name": "Claytonia (the species)",
+            "why": "No named varieties are sold. \"Super-hardy\", and regrows from 5 cm stumps.",
+            "best": "Hardiness",
+            "agm": false,
+            "note": "Very hardy"
+          }
+        ],
+        "sources": [
+          {
+            "label": "Growveg",
+            "url": "https://www.growveg.com/guides/4-super-hardy-salad-leaves-to-grow-in-winter/"
+          }
+        ]
+      },
+      {
+        "id": "mustards",
+        "name": "Oriental mustards",
+        "variety": "",
+        "latin": "Brassica juncea",
+        "kind": "veg",
+        "idea": "winter",
+        "aliases": [
+          "mustard",
+          "mustards",
+          "oriental mustards",
+          "red frills"
+        ],
+        "about": "Hot, colourful leaves that keep growing through mild winters and give salads a kick.",
+        "grow": "Plant plugs into the fleeced bed; pick leaves small for salad, bigger for cooking.",
+        "spacing": "20 cm apart",
+        "tip": "They taste hotter as the weather gets colder.",
+        "calendar": {
+          "sowOut": [
+            [
+              8,
+              9
+            ]
+          ],
+          "plant": [
+            [
+              9,
+              10
+            ]
+          ],
+          "harvest": [
+            [
+              10,
+              3
+            ]
+          ]
+        },
+        "varieties": [
+          {
+            "name": "Green in Snow",
+            "why": "\"Top pungency\" (Dowding); bred for cold tolerance.",
+            "best": "Hot flavour",
+            "agm": false,
+            "note": "Very hardy"
+          },
+          {
+            "name": "Red Frills",
+            "why": "\"Pretty and of great flavour\" (Dowding). Feathery red leaves.",
+            "best": "Colour",
+            "agm": false,
+            "note": "H3–H5 (sources differ)"
+          },
+          {
+            "name": "Red Giant",
+            "why": "Big purple leaves, best cooked.",
+            "best": "Cooking",
+            "agm": false
+          },
+          {
+            "name": "Red Dragon",
+            "why": "Dowding's salad mustard.",
+            "best": "Salad colour",
+            "agm": false
+          }
+        ],
+        "sources": [
+          {
+            "label": "Charles Dowding",
+            "url": "https://charlesdowding.co.uk/blogs/homeacres/seeds-and-varieties-my-tips"
+          },
+          {
+            "label": "RHS Red Frills",
+            "url": "https://www.rhs.org.uk/plants/338818/brassica-juncea-red-frills/details"
+          }
+        ]
+      },
+      {
+        "id": "winter-spinach",
+        "name": "Winter spinach",
+        "variety": "",
+        "latin": "Spinacia oleracea",
+        "kind": "veg",
+        "idea": "winter",
+        "aliases": [
+          "spinach",
+          "winter spinach"
+        ],
+        "about": "Sown in late summer, it gives leaves in autumn and a big flush in early spring.",
+        "grow": "Plant module plugs now; pick the outer leaves.",
+        "spacing": "15 cm apart",
+        "tip": "Spinach bolts in summer but rarely in winter, which makes it a better winter crop.",
+        "calendar": {
+          "sowOut": [
+            [
+              8,
+              9
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "plant": [
+            [
+              9,
+              10
+            ]
+          ],
+          "harvest": [
+            [
+              10,
+              5
+            ]
+          ]
+        },
+        "varieties": [
+          {
+            "name": "Medania",
+            "why": "\"Excellent\" for autumn; came through the hard winter of 2022–23 at Dowding's.",
+            "best": "Reliability",
+            "agm": true,
+            "note": "H2"
+          },
+          {
+            "name": "Giant Winter",
+            "why": "Gave Dowding better midwinter picking than Medania.",
+            "best": "Midwinter yield",
+            "agm": false,
+            "note": "Hardy"
+          },
+          {
+            "name": "Mikado F1",
+            "why": "The only fully hardy (H5) AGM spinach; UK stock not confirmed.",
+            "best": "Hardiness",
+            "agm": true,
+            "note": "H5"
+          }
+        ],
+        "sources": [
+          {
+            "label": "Charles Dowding",
+            "url": "https://charlesdowding.co.uk/blogs/homeacres/seeds-and-varieties-my-tips"
+          },
+          {
+            "label": "RHS AGM list",
+            "url": "https://www.rhs.org.uk/plants/pdfs/agm-lists/agm-fruit-and-vegetables.pdf"
+          }
+        ]
+      },
+      {
+        "id": "chicory",
+        "name": "Chicory and radicchio",
+        "variety": "",
+        "latin": "Cichorium intybus",
+        "kind": "veg",
+        "idea": "winter",
+        "aliases": [
+          "chicory",
+          "radicchio"
+        ],
+        "about": "Bitter-sweet red and green heads that stand all winter. They're sown in July, so this year buy plants.",
+        "grow": "Plant into the bed in late summer; cut heads in winter, and the stumps often resprout.",
+        "spacing": "30 cm apart",
+        "tip": "Sow in early July: earlier sowings bolt, later ones don't heart up.",
+        "calendar": {
+          "sowOut": [
+            [
+              7,
+              7
+            ]
+          ],
+          "plant": [
+            [
+              8,
+              9
+            ]
+          ],
+          "harvest": [
+            [
+              10,
+              3
+            ]
+          ]
+        },
+        "varieties": [
+          {
+            "name": "Palla Rossa",
+            "why": "Hardy round radicchio; the 506TT selection \"stands well\" (Dowding).",
+            "best": "Hardiness",
+            "agm": true,
+            "note": "H5"
+          },
+          {
+            "name": "Pan di Zucchero",
+            "why": "Sugarloaf chicory with tall, milder hearts.",
+            "best": "Bulk",
+            "agm": true,
+            "note": "H5"
+          },
+          {
+            "name": "Grumolo Verde / Rosso",
+            "why": "Very cold-resistant rosettes for picking in late winter.",
+            "best": "Feb–Apr picking",
+            "agm": false,
+            "note": "Very hardy",
+            "seller": true
+          }
+        ],
+        "sources": [
+          {
+            "label": "Charles Dowding",
+            "url": "https://charlesdowding.co.uk/blogs/homeacres/seeds-and-varieties-my-tips"
+          },
+          {
+            "label": "RHS AGM list",
+            "url": "https://www.rhs.org.uk/plants/pdfs/agm-lists/agm-fruit-and-vegetables.pdf"
+          }
+        ]
       },
       {
         "id": "strawberries",
@@ -952,7 +1686,61 @@
               7
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Christine",
+            "why": "The only early variety resistant to verticillium wilt, which matters on clay. Excellent flavour.",
+            "best": "Early · clay",
+            "agm": false,
+            "note": "Verticillium, mildew",
+            "seller": true
+          },
+          {
+            "name": "Honeoye",
+            "why": "Plentiful harvests of large, firm berries.",
+            "best": "Early yield",
+            "agm": true,
+            "note": "Verticillium susceptible"
+          },
+          {
+            "name": "Cambridge Favourite",
+            "why": "\"Very popular and reliable. Good disease resistance\" (RHS).",
+            "best": "Mid · reliable",
+            "agm": true,
+            "note": "Good disease resistance"
+          },
+          {
+            "name": "Florence",
+            "why": "Late, firm, the best all-round disease profile. Tolerates verticillium.",
+            "best": "Late · clay",
+            "agm": true,
+            "note": "Crown rot, mildew"
+          },
+          {
+            "name": "Symphony",
+            "why": "Late with excellent flavour; tolerates red core.",
+            "best": "Late · flavour",
+            "agm": true
+          },
+          {
+            "name": "Mara des Bois",
+            "why": "Wild-strawberry flavour at full size, mid-August to October.",
+            "best": "Flavour",
+            "agm": false,
+            "note": "Everbearer"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS strawberries",
+            "url": "https://www.rhs.org.uk/fruit/strawberries/grow-your-own"
+          },
+          {
+            "label": "Sproot",
+            "url": "https://www.sproot.co.uk/buying-plants/picking-a-strawberry-variety/"
+          }
+        ]
       },
       {
         "id": "poached-egg",
@@ -985,7 +1773,22 @@
               8
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Limnanthes douglasii (the species)",
+            "why": "Holds the AGM and has no named selections worth buying. It draws bees and hoverflies and self-seeds.",
+            "best": "Hoverflies",
+            "agm": true,
+            "note": "Hardy annual"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS",
+            "url": "https://www.rhsplants.co.uk/plants/_/limnanthes-douglasii/classid.2000014878/"
+          }
+        ]
       },
       {
         "id": "calendula",
@@ -1021,7 +1824,47 @@
               10
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Indian Prince",
+            "why": "Large single flowers with open centres: what hoverflies need. On the RHS Plants for Pollinators list.",
+            "best": "Hoverflies",
+            "agm": false,
+            "note": "Single"
+          },
+          {
+            "name": "Calendula officinalis (plain)",
+            "why": "The species: single, self-seeding, on the Plants for Pollinators list.",
+            "best": "Hoverflies",
+            "agm": false,
+            "note": "Single"
+          },
+          {
+            "name": "Daisy Mixed",
+            "why": "Single, daisy-like flowers in mixed colours.",
+            "best": "Hoverflies",
+            "agm": false,
+            "note": "Single"
+          },
+          {
+            "name": "Fiesta Gitana",
+            "why": "The only calendula AGM. Dwarf, good in pots, but its double flowers help hoverflies less.",
+            "best": "Pots",
+            "agm": true,
+            "note": "Double · dwarf"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS hoverflies",
+            "url": "https://www.rhs.org.uk/biodiversity/hoverflies"
+          },
+          {
+            "label": "Garden Organic",
+            "url": "https://www.gardenorganic.org.uk/expert-advice/monthly-organic-gardening-advice/your-organic-garden-in-may"
+          }
+        ]
       },
       {
         "id": "tomatoes",
@@ -1056,7 +1899,55 @@
               10
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Crimson Crush F1",
+            "why": "UK-bred cordon with real blight resistance; crops before blight takes it in September.",
+            "best": "Blight",
+            "agm": false,
+            "note": "Resistant, not immune"
+          },
+          {
+            "name": "Mountain Magic F1",
+            "why": "Cocktail cordon with the best independent blight evidence (Cornell trials).",
+            "best": "Blight",
+            "agm": false,
+            "note": "High late-blight resistance"
+          },
+          {
+            "name": "Losetto F1",
+            "why": "30 cm bush cherry, very sweet, little pruning; growers report near blight resistance.",
+            "best": "Small pots",
+            "agm": false,
+            "note": "Blight tolerant"
+          },
+          {
+            "name": "Lizzano F1",
+            "why": "Semi-trailing 50 cm bush cherry for pots and baskets.",
+            "best": "Pots",
+            "agm": false,
+            "note": "Blight tolerant",
+            "seller": true
+          },
+          {
+            "name": "Sungold F1",
+            "why": "Fine, refreshing sweetness and ripens early. No blight resistance.",
+            "best": "Flavour",
+            "agm": true,
+            "note": "No blight resistance"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS Crimson Crush",
+            "url": "https://www.rhs.org.uk/plants/375116/solanum-lycopersicum-crimson-crush/details"
+          },
+          {
+            "label": "Cornell blight trial",
+            "url": "https://www.vegetables.cornell.edu/pest-management/disease-factsheets/disease-resistant-vegetable-varieties/evaluation-of-late-blight-resistant-tomato-varieties/"
+          }
+        ]
       },
       {
         "id": "lemon-lime",
@@ -1087,7 +1978,48 @@
               3
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Lemon 'Four Seasons'",
+            "why": "Flowers and fruits most of the year, self-fertile; nurseries find it better behaved than Meyer.",
+            "best": "First lemon",
+            "agm": false,
+            "note": "Winter at 5 °C+"
+          },
+          {
+            "name": "Meyer lemon",
+            "why": "Compact, sweeter fruit, ideal for pots. Dislikes damp autumns, so bring it in early.",
+            "best": "Compact pot",
+            "agm": null,
+            "seller": true
+          },
+          {
+            "name": "Tahiti / Bearss lime",
+            "why": "The most reliable fruiting lime for Britain; seedless.",
+            "best": "Lime fruit",
+            "agm": null,
+            "note": "Winter above 10 °C",
+            "seller": true
+          },
+          {
+            "name": "Kaffir (makrut) lime",
+            "why": "Grown for its aromatic leaves, so it doesn't matter if it doesn't fruit.",
+            "best": "Cooking leaves",
+            "agm": null,
+            "note": "Damaged below 5 °C"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS citrus",
+            "url": "https://www.rhs.org.uk/fruit/citrus/grow-your-own"
+          },
+          {
+            "label": "Citrus Centre",
+            "url": "https://citruscentre.co.uk/products/meyers-lemon"
+          }
+        ]
       },
       {
         "id": "potatoes",
@@ -1117,7 +2049,57 @@
               7
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Casablanca",
+            "why": "Dowding grows it: high yields of clean, smooth tubers, pulled not dug in late June.",
+            "best": "No-dig yield",
+            "agm": true
+          },
+          {
+            "name": "Orla",
+            "why": "Excellent resistance to blight on leaves and tubers, plus scab.",
+            "best": "Disease resistance",
+            "agm": true,
+            "note": "Blight, scab"
+          },
+          {
+            "name": "Sharpe's Express",
+            "why": "Classic flavour, said to suit heavy soils.",
+            "best": "Clay · flavour",
+            "agm": true,
+            "seller": true
+          },
+          {
+            "name": "Maris Bard",
+            "why": "Heavy early crops with an earthy flavour.",
+            "best": "Early yield",
+            "agm": true
+          },
+          {
+            "name": "Red Duke of York",
+            "why": "Red skin and great flavour.",
+            "best": "Flavour",
+            "agm": true
+          },
+          {
+            "name": "Rocket",
+            "why": "One of the very earliest, but weak on scab and blight.",
+            "best": "Earliest",
+            "agm": false
+          }
+        ],
+        "sources": [
+          {
+            "label": "Charles Dowding",
+            "url": "https://www.charlesdowding.co.uk/education/seeds-varieties"
+          },
+          {
+            "label": "Garden Focused Orla",
+            "url": "https://gardenfocused.co.uk/vegetable/potatoes/variety-orla.php"
+          }
+        ]
       },
       {
         "id": "courgette",
@@ -1159,7 +2141,46 @@
               10
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Tuscany F1",
+            "why": "High yields of slender dark fruit; strong powdery mildew resistance (RHS).",
+            "best": "Mildew",
+            "agm": true,
+            "note": "Mildew resistant"
+          },
+          {
+            "name": "Defender F1",
+            "why": "Proven heavy cropper, resists cucumber mosaic virus.",
+            "best": "Reliability",
+            "agm": true,
+            "note": "Mildew susceptible (RHS)"
+          },
+          {
+            "name": "Early Gem F1",
+            "why": "Dowding: has \"grown well for me since 1984\".",
+            "best": "Early, reliable",
+            "agm": true
+          },
+          {
+            "name": "Sure Thing F1",
+            "why": "Compact and bred for mildew resistance.",
+            "best": "Compact",
+            "agm": false,
+            "seller": true
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS Tuscany",
+            "url": "https://www.rhs.org.uk/plants/265851/cucurbita-pepo-tuscany/details"
+          },
+          {
+            "label": "Charles Dowding",
+            "url": "https://www.charlesdowding.co.uk/education/seeds-varieties"
+          }
+        ]
       },
       {
         "id": "squash",
@@ -1195,7 +2216,47 @@
               10
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Uchiki Kuri",
+            "why": "Ripens even in damp summers, excellent flavour, keeps until about January.",
+            "best": "Reliable ripening",
+            "agm": false,
+            "note": "Trailing"
+          },
+          {
+            "name": "Crown Prince F1",
+            "why": "Superb flavour and the best keeper, often until April. Ripens a little later.",
+            "best": "Storage",
+            "agm": true,
+            "note": "Trailing"
+          },
+          {
+            "name": "Honey Bear F1",
+            "why": "Compact bush acorn squash for a small plot.",
+            "best": "Small plots",
+            "agm": true,
+            "note": "Bush"
+          },
+          {
+            "name": "Hunter / Harrier",
+            "why": "The only AGM butternuts, but butternuts need a hot summer to ripen.",
+            "best": "Butternut",
+            "agm": true,
+            "note": "Needs heat"
+          }
+        ],
+        "sources": [
+          {
+            "label": "Charles Dowding",
+            "url": "https://www.charlesdowding.co.uk/education/seeds-varieties"
+          },
+          {
+            "label": "RHS AGM list",
+            "url": "https://www.rhs.org.uk/plants/pdfs/agm-lists/agm-fruit-and-vegetables.pdf"
+          }
+        ]
       },
       {
         "id": "leeks",
@@ -1230,7 +2291,54 @@
               3
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Oarsman F1",
+            "why": "British-bred, straight and uniform, stands well; tolerates rust.",
+            "best": "Rust tolerance",
+            "agm": true,
+            "note": "H5"
+          },
+          {
+            "name": "Bandit",
+            "why": "Late leek to pick from winter into spring; said to resist rust.",
+            "best": "Late harvest",
+            "agm": true,
+            "note": "H5"
+          },
+          {
+            "name": "Porbella",
+            "why": "Long cropping season with thick white stems.",
+            "best": "Long season",
+            "agm": true,
+            "note": "H5"
+          },
+          {
+            "name": "Toledo",
+            "why": "Long shanks for use November to March.",
+            "best": "Winter harvest",
+            "agm": true,
+            "note": "H5"
+          },
+          {
+            "name": "Musselburgh",
+            "why": "Very hardy Scottish heritage leek; you can save the seed.",
+            "best": "Seed saving",
+            "agm": false,
+            "note": "Very hardy"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS leeks",
+            "url": "https://www.rhs.org.uk/vegetables/leeks/grow-your-own"
+          },
+          {
+            "label": "AHDB leek rust",
+            "url": "https://projectblue.blob.core.windows.net/media/Default/Horticulture/Publications/Leek%20rust.pdf"
+          }
+        ]
       },
       {
         "id": "kale",
@@ -1266,7 +2374,54 @@
               3
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Reflex F1",
+            "why": "Blue-green curly kale that keeps its colour in cold; long harvest.",
+            "best": "Hardiness",
+            "agm": true,
+            "note": "H5"
+          },
+          {
+            "name": "Redbor F1",
+            "why": "Very curly red-purple leaves over a long period.",
+            "best": "Colour",
+            "agm": true,
+            "note": "H5"
+          },
+          {
+            "name": "Starbor F1",
+            "why": "Compact and needs no staking: good for a late planting.",
+            "best": "Small plots",
+            "agm": true,
+            "note": "Fully hardy"
+          },
+          {
+            "name": "Nero di Toscana",
+            "why": "\"Probably the tastiest\" (Dowding), but less frost-hardy and attracts whitefly.",
+            "best": "Flavour",
+            "agm": false,
+            "note": "Less hardy"
+          },
+          {
+            "name": "Red Russian",
+            "why": "Tender leaves good raw; growers find it gets less whitefly.",
+            "best": "Salad leaves",
+            "agm": false,
+            "note": "Hardy"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS kale",
+            "url": "https://www.rhs.org.uk/vegetables/kale/grow-your-own"
+          },
+          {
+            "label": "Charles Dowding",
+            "url": "https://charlesdowding.co.uk/seeds-and-varieties/"
+          }
+        ]
       },
       {
         "id": "borlotti",
@@ -1301,7 +2456,40 @@
               10
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Lingua di Fuoco (climbing)",
+            "why": "RHS-recommended for drying. Pods ripen mottled pink, about 1.8 m. Check the packet says climbing, not 'Nano'.",
+            "best": "Drying",
+            "agm": false,
+            "note": "Tender"
+          },
+          {
+            "name": "Borlotto Lamon",
+            "why": "The bean for pasta e fagioli; 1.8–2 m.",
+            "best": "Flavour",
+            "agm": false,
+            "note": "Tender"
+          },
+          {
+            "name": "Borlotto Stregonta",
+            "why": "Italian climber with long streaked seeds, about 80 days.",
+            "best": "Fresh beans",
+            "agm": false,
+            "note": "Tender"
+          }
+        ],
+        "sources": [
+          {
+            "label": "RHS beans for drying",
+            "url": "https://www.rhs.org.uk/vegetables/beans-for-drying/grow-your-own"
+          },
+          {
+            "label": "Seeds of Italy",
+            "url": "https://seedsofitaly.com/borlotto-bean-lamon-climber/"
+          }
+        ]
       },
       {
         "id": "french-beans",
@@ -1338,8 +2526,46 @@
               10
             ]
           ]
-        }
+        },
+        "varieties": [
+          {
+            "name": "Stanley",
+            "why": "High yields; said to resist halo blight, anthracnose and bean mosaic virus.",
+            "best": "Disease resistance",
+            "agm": true,
+            "seller": true
+          },
+          {
+            "name": "Sprite",
+            "why": "Totally stringless straight dark pods, compact, needs no support.",
+            "best": "Small beds",
+            "agm": true
+          },
+          {
+            "name": "Elba",
+            "why": "Long green pods (Dowding).",
+            "best": "Yield",
+            "agm": true
+          },
+          {
+            "name": "Tendergreen",
+            "why": "Stringless and early: good for a late July sowing.",
+            "best": "Late sowing",
+            "agm": false
+          }
+        ],
+        "sources": [
+          {
+            "label": "Garden Focused",
+            "url": "https://gardenfocused.co.uk/vegetable/frenchbeans/varieties.php"
+          },
+          {
+            "label": "Charles Dowding",
+            "url": "https://www.charlesdowding.co.uk/education/seeds-varieties"
+          }
+        ]
       }
-    ]
+    ],
+    "varietiesNote": "Varieties researched in October 2026. AGM is the RHS Award of Garden Merit; claims made only by a seed seller are marked. On clay, how you grow (mesh, mulch, November sowing, module plugs) matters more than which variety."
   }
 }
