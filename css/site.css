@@ -511,3 +511,8 @@ table.plain td.mono { white-space: nowrap; color: var(--straw-dim); font-size: 1
 .cat-links .see { color: var(--straw-dim); font: 12px var(--mono); align-self: center; }
 #view-about { margin: -4px 0 16px; flex-direction: column; }
 [hidden] { display: none !important; }
+.place { display: inline-block; margin-top: 5px; font: 500 11px/1 var(--mono); color: var(--straw-dim); border: 1px solid var(--edge); border-radius: 99px; padding: 3px 7px; }
+.place[data-place="plot-crops"] { color: var(--keep); border-color: color-mix(in srgb, var(--keep) 45%, transparent); }
+.crop .thumb.none { display: grid; place-items: center; font: 700 24px var(--display); color: var(--straw-dim); border: 1px dashed var(--edge); background: none; }
+#weeds { padding-top: 56px; }
+.weed-part { font: 600 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--straw-dim); margin: 22px 0 10px; }

@@ -1,8 +1,9 @@
 // Catalogue: every crop on the plot or planned, with photos and a month bar showing today.
 (async function main() {
-  let site, credits = {};
+  let site, credits = {}, weedCredits = {};
   try {
-    [site, credits] = await Promise.all([loadJSON("data/site.json"), loadJSON("data/crop-credits.json").catch(() => ({}))]);
+    [site, credits, weedCredits] = await Promise.all([loadJSON("data/site.json"),
+      loadJSON("data/crop-credits.json").catch(() => ({})), loadJSON("data/credits.json").catch(() => ({}))]);
   } catch (err) {
     $("main").prepend(h("p", { class: "empty" }, "The catalogue didn't load. Open this page through a web server (see README)."));
     throw err;
@@ -14,6 +15,7 @@
   const groups = groupCrops(site);
   renderNow(site.catalog.crops, now);
   renderList(site, groups, credits, now);
+  renderWeeds(site, weedCredits);
   $("#cat-note").textContent = site.catalog.note;
   $("#cat-credits").textContent = "Photos from Wikimedia Commons, freely licensed. The photographer and licence are under each photo.";
   openFromHash();
@@ -31,7 +33,7 @@ function groupCrops(site) {
   };
   const areas = Object.fromEntries(site.plot.areas.map((a) => [a.id, a]));
   for (const p of site.layout) for (const id of p.catalog || []) add(id, "plot-crops", `${areas[p.bed].name}, ${p.from}–${p.to} m from the west end`);
-  for (const c of site.plot.companions || []) add(c.catalog, "flowers", `${areas[c.area].name}, between the strawberries ${c.from}–${c.to} m`);
+  for (const c of site.plot.companions || []) add(c.catalog, "plot-crops", `${areas[c.area].name}, between the strawberries ${c.from}–${c.to} m`);
   for (const p of site.pots) for (const id of p.catalog || []) add(id, "flowers", p.where);
   for (const r of site.succession) for (const id of r.catalog || []) add(id, "next-crops", `After the ${r.now.toLowerCase()}, from ${r.when}`);
   return { where, group };
@@ -68,11 +70,14 @@ function renderNow(crops, now) {
   }
 }
 
-const GROUPS = [
-  { id: "plot-crops", title: "In the plot", sub: "Sown and planted this autumn. Tap one for how to grow it." },
-  { id: "flowers", title: "Flowers and pots", sub: "Flowers to bring in hoverflies, and what grows in pots." },
-  { id: "next-crops", title: "Next summer", sub: "What follows each crop as it comes out." },
+// The catalogue is split by what a plant is; where it grows is a tag on each row.
+const KINDS = [
+  { id: "veg", kind: "veg", title: "Vegetables", sub: "On the plot now, in pots, and what follows next summer. Tap one for how to grow it." },
+  { id: "fruit", kind: "fruit", title: "Fruit", sub: "Strawberries in the ground and citrus in pots." },
+  { id: "flowers", kind: "flower", title: "Flowers", sub: "Grown to bring in hoverflies, whose larvae eat aphids." },
 ];
+const PLACE = { "plot-crops": "In the plot", flowers: "In pots", "next-crops": "Next summer" };
+const PLACE_ORDER = ["plot-crops", "flowers", "next-crops"];
 
 function renderList(site, { where, group }, credits, now) {
   const list = $("#crop-list");
@@ -80,13 +85,15 @@ function renderList(site, { where, group }, credits, now) {
     h("span", { class: "lg-today" }, h("i", {}), "Today"));
   $("#ruler").replaceWith(monthRuler(now));
 
-  for (const g of GROUPS) {
-    const crops = site.catalog.crops.filter((c) => group[c.id] === g.id);
+  // Pots that aren't flowers (tomatoes, citrus) are tagged "In pots" rather than in the flowers group.
+  const rank = (c) => PLACE_ORDER.indexOf(group[c.id]);
+  for (const k of KINDS) {
+    const crops = site.catalog.crops.filter((c) => c.kind === k.kind).sort((a, b) => rank(a) - rank(b));
     if (!crops.length) continue;
-    list.append(h("section", { id: g.id, "aria-labelledby": `${g.id}-h` },
-      h("div", { class: "group-title" }, h("h2", { id: `${g.id}-h` }, g.title), h("span", { class: "count" }, String(crops.length))),
-      h("p", { class: "sub" }, g.sub),
-      h("div", { class: "crops" }, crops.map((c) => cropEntry(c, where[c.id] || [], credits[c.id], now, g.id === "plot-crops")))));
+    list.append(h("section", { id: k.id, "aria-labelledby": `${k.id}-h` },
+      h("div", { class: "group-title" }, h("h2", { id: `${k.id}-h` }, k.title), h("span", { class: "count" }, String(crops.length))),
+      h("p", { class: "sub" }, k.sub),
+      h("div", { class: "crops" }, crops.map((c) => cropEntry(c, where[c.id] || [], credits[c.id], now, group[c.id])))));
   }
 }
 
@@ -96,15 +103,17 @@ function statusFor(crop, now) {
   return job ? { act: job, text: ACT[job].now } : next ? { act: next.act, text: next.text, later: true } : null;
 }
 
-function cropEntry(c, where, credit, now, onPlot) {
+function cropEntry(c, where, credit, now, place) {
   const st = statusFor(c, now);
+  const onPlot = place === "plot-crops";
   const fact = (k, v) => v && [h("dt", {}, k), h("dd", {}, v)];
   const d = h("details", { class: "crop", id: c.id },
     h("summary", {},
       h("img", { class: "thumb", src: cropPhoto(c.id), alt: "", loading: "lazy", width: 64, height: 64 }),
       h("span", { class: "crop-name" },
         h("b", {}, c.name),
-        h("span", { class: "crop-sub" }, c.variety || h("i", {}, c.latin))),
+        h("span", { class: "crop-sub" }, c.variety || h("i", {}, c.latin)),
+        PLACE[place] && h("span", { class: "place", "data-place": place }, PLACE[place])),
       st && h("span", { class: st.later ? "status later" : "status", "data-act": st.act }, st.text),
       monthBar(c, { now })),
     h("div", { class: "crop-body" },
@@ -121,6 +130,45 @@ function cropEntry(c, where, credit, now, onPlot) {
         c.variety && fact("Latin name", h("i", {}, c.latin))),
       onPlot && h("a", { class: "btn ghost small", href: `plot.html?crop=${c.id}#layout` }, "Show it on the plot")));
   return d;
+}
+
+/* ---------- Weeds: what comes out, and what looks like a weed but stays ---------- */
+function renderWeeds(site, credits) {
+  const groups = Object.fromEntries(site.weedGroups.map((g) => [g.id, g]));
+  const remove = site.weeds.filter((w) => w.group !== "keep");
+  const keep = site.weeds.filter((w) => w.group === "keep");
+  const part = (title, list) => [h("h3", { class: "weed-part" }, title), h("div", { class: "crops" }, list.map((w) => weedEntry(w, groups[w.group], credits[w.id])))];
+  $("#weeds").append(
+    h("div", { class: "group-title" }, h("h2", { id: "weeds-h" }, "Weeds"), h("span", { class: "count" }, String(site.weeds.length))),
+    h("p", { class: "sub" }, "What to pull while clearing, and the plants already there that look like weeds but stay. No digging: cut or pull, never fork the bed over."),
+    ...part(`Remove · ${remove.length}`, remove),
+    ...part(`Keep · ${keep.length}`, keep));
+}
+
+const WEED_TAG = { easy: "Easy annual", check: "Check the root", problem: "Possible problem", keep: "Keep" };
+
+function weedEntry(w, g, credit) {
+  const fact = (k, v) => v && [h("dt", {}, k), h("dd", {}, v)];
+  const thumb = w.photo
+    ? h("img", { class: "thumb", src: w.photo, alt: "", loading: "lazy", width: 64, height: 64 })
+    : h("span", { class: "thumb none", "aria-hidden": "true" }, "?");
+  return h("details", { class: "crop weed", id: `weed-${w.id}`, "data-group": w.group },
+    h("summary", {},
+      thumb,
+      h("span", { class: "crop-name" }, h("b", {}, w.name.replace(/^…or /, "")), h("span", { class: "crop-sub" }, h("i", {}, w.latin), ` · ${w.life}`)),
+      h("span", { class: "status weed-status" }, WEED_TAG[w.group])),
+    h("div", { class: "crop-body" },
+      w.photo
+        ? h("figure", { class: "crop-photo" },
+            h("img", { src: w.photo, alt: w.name, loading: "lazy" }),
+            credit && h("figcaption", {}, h("a", { href: credit.source, target: "_blank", rel: "noopener" }, credit.author), ` · ${credit.license}`))
+        : h("p", { class: "about" }, "No reference photo: every grass clump looks different. Pull one and check the roots."),
+      g && h("p", { class: "about" }, g.blurb),
+      h("dl", { class: "crop-facts" },
+        fact("How to spot it", w.spot),
+        fact(w.group === "keep" ? "What to do" : "How to remove it, no-dig", w.remove),
+        fact("Where it goes", w.dispose)),
+      h("a", { class: "btn ghost small", href: `index.html#weed-${w.id}` }, "On the clearing page")));
 }
 
 // #garlic opens that entry and scrolls to it.

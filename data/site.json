@@ -277,7 +277,9 @@
       "name": "Lemon and lime",
       "where": "Pots; on the plot in summer",
       "when": "Home October–April",
-      "catalog": []
+      "catalog": [
+        "lemon-lime"
+      ]
     }
   ],
   "weedGroups": [
@@ -1052,6 +1054,37 @@
             [
               7,
               10
+            ]
+          ]
+        }
+      },
+      {
+        "id": "lemon-lime",
+        "name": "Lemon and lime",
+        "variety": "",
+        "latin": "Citrus × limon, Citrus × aurantiifolia",
+        "kind": "fruit",
+        "aliases": [
+          "lemon",
+          "lime",
+          "citrus",
+          "lemon and lime"
+        ],
+        "about": "Citrus in pots. They spend the summer on the plot and the winter at home, because a London frost kills them.",
+        "grow": "Bring them home in October before the first frost and keep them in a bright, cool room. Take them back to the plot in June, once nights stay above 10 °C.",
+        "spacing": "One tree per 30–40 cm pot, in citrus or loam-based compost",
+        "tip": "Water when the top few centimetres are dry, less in winter. Feed with citrus food: the summer kind April–September, the winter kind October–March.",
+        "calendar": {
+          "flower": [
+            [
+              3,
+              5
+            ]
+          ],
+          "harvest": [
+            [
+              11,
+              3
             ]
           ]
         }
