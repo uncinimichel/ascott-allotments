@@ -64,5 +64,11 @@
     "source": "https://commons.wikimedia.org/wiki/File:Topinambur_Helianthus_tuberosus_2.jpg",
     "author": "Darkone",
     "license": "CC BY-SA 2.0"
+  },
+  "tool:hori-hori": {
+    "file": "Hori-hori.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Hori-hori.jpg",
+    "author": "Arthur Violy",
+    "license": "CC BY-SA 4.0"
   }
 }

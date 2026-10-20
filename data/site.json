@@ -2567,5 +2567,262 @@
       }
     ],
     "varietiesNote": "Varieties researched in October 2026. AGM is the RHS Award of Garden Merit; claims made only by a seed seller are marked. On clay, how you grow (mesh, mulch, November sowing, module plugs) matters more than which variety."
+  },
+  "noDig": {
+    "lede": "You never turn the soil over. Compost goes on top, the soil life does the digging, and you plant straight into the surface.",
+    "principles": [
+      {
+        "title": "Leave the soil whole",
+        "body": "Worm channels, root holes and fungal threads give clay its structure and drainage. Digging breaks them, and digging wet clay smears it into a solid layer."
+      },
+      {
+        "title": "Feed from the top",
+        "body": "Compost sits on the surface. Worms pull it down for you. On your beds that's 15 cm now, then 3–5 cm every autumn."
+      },
+      {
+        "title": "Keep weed seeds buried",
+        "body": "Every clay soil holds years of weed seed. Dig and you bring it up to the light; leave it and it stays dormant."
+      },
+      {
+        "title": "Never stand on the beds",
+        "body": "Your weight squashes the air out of clay. Work from the path, which is why the beds are 1.2 m wide: you can reach the middle from either side."
+      },
+      {
+        "title": "Weed small, weed often",
+        "body": "Slice seedlings with a hoe on a dry day, and pull bindweed shoots weekly. Small weeds take seconds; big ones seed."
+      },
+      {
+        "title": "Cut, don't pull, at harvest",
+        "body": "Cut finished crops at ground level and leave the roots to rot in place. Bean roots even leave nitrogen behind. Plant the next crop the same day."
+      }
+    ],
+    "layers": [
+      {
+        "id": "compost",
+        "name": "Compost",
+        "depth": "15 cm",
+        "note": "You sow and plant into this. Topped up 3–5 cm each autumn."
+      },
+      {
+        "id": "cardboard",
+        "name": "Cardboard, two layers",
+        "depth": "",
+        "note": "Smothers the weeds below. Rots away in a few months; roots grow straight through."
+      },
+      {
+        "id": "clay",
+        "name": "Ealing clay",
+        "depth": "",
+        "note": "Left alone. Worms and fungi open it up from below over a year or two."
+      }
+    ],
+    "year": [
+      {
+        "season": "Autumn",
+        "months": [
+          9,
+          10,
+          11
+        ],
+        "jobs": [
+          "Spread 3–5 cm of compost over the beds once crops are cleared.",
+          "Plant garlic and onions; sow broad beans and peas into the compost.",
+          "Top up wood chip on the path."
+        ]
+      },
+      {
+        "season": "Winter",
+        "months": [
+          12,
+          1,
+          2
+        ],
+        "jobs": [
+          "Keep the fleece and mesh on; check them after wind.",
+          "Pull any bindweed or couch shoots that appear.",
+          "Stay off the beds when the clay is wet."
+        ]
+      },
+      {
+        "season": "Spring",
+        "months": [
+          3,
+          4,
+          5
+        ],
+        "jobs": [
+          "Hoe tiny weeds on dry days.",
+          "Plant potatoes on the surface under compost; no trench.",
+          "Plant out plugs through the compost with the hori hori."
+        ]
+      },
+      {
+        "season": "Summer",
+        "months": [
+          6,
+          7,
+          8
+        ],
+        "jobs": [
+          "Cut each finished crop at ground level and replant the same day.",
+          "Water at the base, early in the morning.",
+          "Keep hoeing; don't let anything seed."
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "id": "hori-hori",
+        "name": "Hori hori",
+        "aka": "Japanese soil knife",
+        "need": "essential",
+        "shop": "hori-hori",
+        "why": "The one hand tool that does most no-dig jobs. One sharp edge, one serrated edge, and a depth scale engraved on the blade.",
+        "uses": [
+          {
+            "title": "Cut the X in the cardboard",
+            "body": "The serrated edge saws through two layers of wet cardboard for strawberries and plugs."
+          },
+          {
+            "title": "Plant plugs and strawberries",
+            "body": "Stab, rock it back, drop the plant in, firm it. No trowel needed."
+          },
+          {
+            "title": "Check the depth",
+            "body": "Read the scale on the blade: garlic tips 2–3 cm down, broad beans 5 cm."
+          },
+          {
+            "title": "Lever out a deep root",
+            "body": "Slide it down beside a dock or bindweed root and ease it out without turning the bed."
+          },
+          {
+            "title": "Cut at ground level",
+            "body": "Harvest finished crops by slicing the stem and leaving the roots in."
+          },
+          {
+            "title": "Open bags, cut twine",
+            "body": "Compost bags, mesh ties, string lines."
+          }
+        ],
+        "tip": "Buy one with a holster so it lives on your belt, and wipe it dry after use. The scale is in both inches and millimetres."
+      },
+      {
+        "id": "dibber",
+        "name": "Dibber",
+        "need": "essential",
+        "shop": "dibber",
+        "icon": "dibber",
+        "why": "A pointed stick for making holes in the compost: garlic cloves, broad beans, leeks next summer. Get one with depth rings."
+      },
+      {
+        "id": "hoe",
+        "name": "Hoe",
+        "aka": "Onion hoe or Dutch hoe",
+        "need": "essential",
+        "icon": "hoe",
+        "why": "Slices weed seedlings just under the surface on a dry day. The only weeding most of the bed will need. A small onion hoe suits narrow beds."
+      },
+      {
+        "id": "string-line",
+        "name": "String line and pegs",
+        "need": "useful",
+        "shop": "string-line",
+        "icon": "line",
+        "why": "Straight rows of garlic and onions, so you can hoe between them without slicing the crop."
+      },
+      {
+        "id": "rake",
+        "name": "Rake",
+        "need": "useful",
+        "icon": "rake",
+        "why": "Levels the compost after spreading. Turn it over and drag the back to make a shallow sowing drill. Borrowing one is fine."
+      },
+      {
+        "id": "can",
+        "name": "Watering can with a fine rose",
+        "need": "useful",
+        "icon": "can",
+        "why": "The water point is next to the starter beds. A fine rose waters seeds without washing the compost away."
+      },
+      {
+        "id": "kneeler",
+        "name": "Kneeler",
+        "need": "useful",
+        "icon": "kneeler",
+        "why": "Kneel on the path, never on the bed. Wet clay paths get cold fast."
+      },
+      {
+        "id": "fork",
+        "name": "Fork",
+        "need": "have",
+        "shop": "fork",
+        "icon": "fork",
+        "why": "Keep it for moving compost and wood chip from the bulk bags. Not for turning the bed."
+      },
+      {
+        "id": "spade",
+        "name": "Spade",
+        "need": "have",
+        "shop": "spade",
+        "icon": "spade",
+        "why": "For scooping compost and squaring off the bed edges. Not for digging."
+      },
+      {
+        "id": "shears",
+        "name": "Shears or kama sickle",
+        "need": "have",
+        "shop": "shears",
+        "icon": "shears",
+        "why": "Clearing: cut tall weeds and seed heads at ground level."
+      },
+      {
+        "id": "buckets",
+        "name": "Buckets",
+        "need": "have",
+        "shop": "buckets",
+        "icon": "bucket",
+        "why": "Carrying compost from the bags, and weeds to the bin."
+      },
+      {
+        "id": "gloves",
+        "name": "Gloves",
+        "need": "have",
+        "shop": "gloves",
+        "icon": "gloves",
+        "why": "Bindweed and nettles; a leather pair for the hori hori."
+      }
+    ],
+    "skip": [
+      {
+        "name": "Rotavator",
+        "why": "Chops bindweed and couch roots into hundreds of pieces, and every piece regrows."
+      },
+      {
+        "name": "Digging the beds over",
+        "why": "Undoes the soil structure and brings up weed seed. On clay it compacts what it doesn't smear."
+      },
+      {
+        "name": "Black plastic or weed membrane",
+        "why": "Cardboard does the same job, rots into the soil and costs nothing."
+      },
+      {
+        "name": "Bagged fertiliser",
+        "why": "The compost feeds the crops. The seaweed and citrus food you've ordered are enough extra."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Charles Dowding: no dig",
+        "url": "https://charlesdowding.co.uk/no-dig/"
+      },
+      {
+        "label": "RHS: no-dig gardening",
+        "url": "https://www.rhs.org.uk/soil-composts-mulches/no-dig-gardening"
+      },
+      {
+        "label": "Garden Organic: no dig",
+        "url": "https://www.gardenorganic.org.uk/expert-advice/garden-management/soil/no-dig-gardening"
+      }
+    ]
   }
 }
